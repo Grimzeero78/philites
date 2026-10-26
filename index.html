@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philites FC — Chuka Premier League</title>
+<meta name="description" content="Official home of Philites FC in the Chuka Premier League. Fixtures, results, squad, news and trials.">
+<meta name="theme-color" content="#0D0D0D">
+
+<!-- Apply saved theme before paint (prevents flash) -->
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('philites-theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+
+<!-- ★ EDITABLE: Favicon set (files sit next to index.html). Replace files to rebrand. -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<!-- ★ EDITABLE: Open Graph / Twitter card. Update og:url when the site has a real domain. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Philites FC">
+<meta property="og:title" content="Philites FC — One Team. One Chuka. One Philites.">
+<meta property="og:description" content="Official home of Philites FC — Chuka University's side in the Chuka Premier League. Fixtures, results, squad, highlights and trials for the 2026/27 season.">
+<meta property="og:image" content="https://picsum.photos/seed/philites-og/1200/630.jpg">
+<meta property="og:url" content="https://philitesfc.ke/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Philites FC — Chuka Premier League">
+<meta name="twitter:description" content="Fixtures, results, squad, highlights and trials for the 2026/27 season.">
+<meta name="twitter:image" content="https://picsum.photos/seed/philites-og/1200/630.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
+
+<!-- ★ EDITABLE: Schema.org SportsTeam. Keep sameAs in sync with CONFIG.socials below. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsTeam",
+  "name": "Philites FC",
+  "sport": "Soccer",
+  "url": "https://philitesfc.ke/",
+  "logo": "https://picsum.photos/seed/philites-og/1200/630.jpg",
+  "memberOf": { "@type": "SportsOrganization", "name": "Chuka Premier League (University Division)" },
+  "location": {
+    "@type": "Place",
+    "name": "Chuka University Stadium",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Chuka University Sports Complex, Chuka–Embu Road",
+      "addressLocality": "Chuka",
+      "addressRegion": "Tharaka-Nithi",
+      "addressCountry": "KE"
+    }
+  },
+  "coach": { "@type": "Person", "name": "Stephen Odhiambo", "jobTitle": "Head Coach" },
+  "sameAs": [
+    "https://chat.whatsapp.com/YOUR-GROUP-LINK",
+    "https://facebook.com/philitesfc",
+    "https://instagram.com/philitesfc",
+    "https://x.com/philitesfc",
+    "https://tiktok.com/@philitesfc"
+  ]
+}
+</script>
+
+<style>
+/* ============================================================
+   1. DESIGN TOKENS
+   ★ EDITABLE: club colours live here. Light mode overrides are in
+   the [data-theme="light"] block near the end of the CSS.
+   Every surface now uses tokens so BOTH themes cover the full page.
+   ============================================================ */
+:root{
+  color-scheme:dark;
+  --bg:#0D0D0D; --bg-2:#121212; --bg-3:#181818;
+  --line:rgba(255,255,255,.09); --line-strong:rgba(255,255,255,.2);
+  --text:#F1EFE9; --muted:#A39F94; --faint:#6F6B62;
+  --gold:#F5A623; --gold-soft:rgba(245,166,35,.12); --gold-line:rgba(245,166,35,.4);
+  --blue:#1B3A6B; --blue-2:#22437A; --blue-ink:#101F3A; --blue-line:rgba(46,90,168,.35);
+  --win:#F5A623; --draw:#8B877D; --loss:#D9584F;
+  --track:rgba(255,255,255,.08); --input-bg:#0E0E0E;
+  --md-bg:#0D0D0D;                       /* hero base (dark theme) */
+  --ticker-bg:rgba(13,13,13,.88);        /* hero ticker strip */
+  --panel-glass:rgba(18,18,18,.85);      /* countdown cells */
+  --f-disp:'Bebas Neue',sans-serif;
+  --f-head:'Oswald',sans-serif;
+  --f-body:'DM Sans',sans-serif;
+  --wrap:1180px; --sec-pad:clamp(4.5rem,9vw,7.5rem); --nav-h:76px;
+  --ease:cubic-bezier(.22,.9,.3,1);
+}
+
+/* ============================================================
+   2. BASE / RESET
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.locked{overflow:hidden}
+::selection{background:var(--gold);color:#0D0D0D}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,h4{line-height:1.15}
+section[id]{scroll-margin-top:calc(var(--nav-h) + 8px)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+::-webkit-scrollbar{width:10px;height:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#2b2b2b;border-radius:5px}
+::-webkit-scrollbar-thumb:hover{background:#3a3a3a}
+.wrap{width:min(100% - 2.75rem,var(--wrap));margin-inline:auto}
+.icon{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block;vertical-align:-.12em}
+.icon--fill{fill:currentColor;stroke:none}
+.skip{position:absolute;left:-9999px;top:0;background:var(--gold);color:#0D0D0D;padding:.7rem 1.2rem;font-family:var(--f-head);z-index:200}
+.skip:focus{left:0}
+
+/* ============================================================
+   3. SHARED UI — buttons, badges, section headers, reveals
+   ============================================================ */
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--f-head);font-weight:600;font-size:.86rem;letter-spacing:.18em;text-transform:uppercase;padding:.95rem 1.7rem;transition:transform .25s var(--ease),background .25s,border-color .25s,color .25s;clip-path:polygon(0 0,calc(100% - 13px) 0,100% 13px,100% 100%,0 100%)}
+.btn .icon{width:1.05em;height:1.05em}
+.btn-gold{background:var(--gold);color:#141414}
+.btn-gold:hover{background:#FFB63A;transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line-strong);color:var(--text);clip-path:none}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.badge{font-family:var(--f-head);font-size:.68rem;font-weight:600;letter-spacing:.14em;padding:.28rem .55rem;background:var(--blue-2);color:#DCE6F5;text-transform:uppercase}
+.badge-gk{background:var(--gold);color:#141414}
+.chip{position:absolute;top:.6rem;left:.6rem;z-index:2;font-family:var(--f-head);font-size:.66rem;font-weight:600;letter-spacing:.1em;padding:.22rem .5rem;color:#141414;background:var(--gold)}
+.chip-top{top:auto;bottom:2.6rem}
+.sec{padding-block:var(--sec-pad);position:relative}
+.sec--alt{background:var(--bg-2)}
+.sec-head{display:flex;align-items:flex-end;gap:1.4rem;margin-bottom:clamp(2.2rem,5vw,3.4rem)}
+.sec-index{font-family:var(--f-disp);font-size:1rem;color:var(--gold);letter-spacing:.1em;border:1px solid var(--gold-line);padding:.35rem .6rem;flex:none}
+.sec-head h2{font-family:var(--f-disp);font-weight:400;font-size:clamp(2.4rem,5.5vw,4rem);letter-spacing:.02em}
+.sec-kicker{font-family:var(--f-head);font-size:.74rem;font-weight:500;color:var(--muted);letter-spacing:.34em;text-transform:uppercase;margin-bottom:.35rem}
+.sec-rule{flex:1;height:1px;background:var(--line);margin-bottom:.9rem}
+.sec-action{font-family:var(--f-head);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem;white-space:nowrap}
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i,0)*90ms)}
+[data-reveal].in-view{opacity:1;transform:none}
+
+/* ============================================================
+   4. NAVIGATION (sticky) + theme toggle
+   ============================================================ */
+.site-nav{position:fixed;inset:0 0 auto 0;z-index:90;height:var(--nav-h);display:flex;align-items:center;border-bottom:1px solid transparent;transition:background .35s,border-color .35s}
+.site-nav.scrolled{background:var(--nav-glass,rgba(13,13,13,.9));backdrop-filter:blur(10px);border-color:var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.75rem}
+.brand svg{width:42px;height:49px}
+.brand-name{font-family:var(--f-disp);font-size:1.5rem;letter-spacing:.06em;line-height:1}
+.brand-name small{display:block;font-family:var(--f-head);font-size:.56rem;font-weight:500;letter-spacing:.32em;color:var(--gold)}
+.nav-links{display:none;gap:1.9rem;list-style:none}
+.nav-links a{font-family:var(--f-head);font-size:.8rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:.4rem 0;position:relative;transition:color .2s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);transition:width .25s var(--ease)}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--text)}
+.nav-links a:hover::after,.nav-links a[aria-current]::after{width:100%}
+@media(min-width:960px) and (max-width:1220px){
+  .nav-links{gap:1.05rem}
+  .nav-links a{font-size:.72rem;letter-spacing:.1em}
+}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+.nav-cta{display:none}
+.nav-burger,.theme-toggle{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line-strong);transition:border-color .2s,color .2s}
+.nav-burger:hover,.theme-toggle:hover{border-color:var(--gold);color:var(--gold)}
+.nav-burger .icon,.theme-toggle .icon{width:19px;height:19px}
+@media(min-width:960px){
+  .nav-links{display:flex}
+  .nav-cta{display:inline-flex;padding:.7rem 1.3rem;font-size:.76rem}
+  .nav-burger{display:none}
+}
+.mobile-menu{position:fixed;inset:0;z-index:85;background:var(--menu-bg,rgba(10,10,10,.98));display:flex;flex-direction:column;justify-content:flex-start;padding:5.5rem 2rem 3rem;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s}
+.mobile-menu.open{opacity:1;visibility:visible;transform:none}
+.mobile-menu ul{list-style:none;display:grid;gap:.2rem;margin:auto 0;padding:1rem 0}
+.mobile-menu a{display:flex;align-items:baseline;gap:1rem;padding:.5rem 0;font-family:var(--f-disp);font-size:clamp(1.9rem,7.5vw,2.6rem);letter-spacing:.04em;border-bottom:1px solid var(--line);transition:color .2s,padding-left .25s var(--ease)}
+.mobile-menu a:hover{color:var(--gold);padding-left:.6rem}
+.mobile-menu a span{font-family:var(--f-head);font-size:.8rem;color:var(--gold)}
+.mobile-menu .btn{margin:2rem auto 0;justify-content:center}
+
+/* ============================================================
+   5. HERO — layered match-day backdrop. Fully theme-aware:
+   the dark version is the default, the light version is defined
+   in the [data-theme="light"] block (§16).
+   ★ EDITABLE: tune gradient stops below. To use a real photo,
+     replace the whole background stack with:
+     background:url("your-photo.jpg") center/cover;
+   ============================================================ */
+.hero{min-height:100svh;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    /* fine gold floodlight hairlines — 1px every 120px */
+    repeating-linear-gradient(90deg,rgba(245,166,35,.06) 0 1px,transparent 1px 120px),
+    /* royal-blue horizontal band behind the headline area */
+    linear-gradient(180deg,transparent 30%,rgba(27,58,107,.35) 45%,rgba(27,58,107,.1) 58%,transparent 70%),
+    /* gold floodlight glow from the top-left corner */
+    radial-gradient(62% 55% at 12% 0%,rgba(245,166,35,.18),transparent 70%),
+    /* deep midnight blue-black base fading into the page background */
+    radial-gradient(130% 100% at 50% 0%,#0A1526 0%,var(--md-bg) 74%);
+}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(13,13,13,.72) 0%,rgba(13,13,13,.4) 40%,rgba(13,13,13,.9) 84%,var(--md-bg) 100%),
+             linear-gradient(90deg,rgba(13,13,13,.78) 0%,rgba(13,13,13,.18) 70%);
+}
+/* Giant ghosted club crest — "badge in the dark" watermark */
+.hero-mark{position:absolute;right:-4%;bottom:-14%;width:min(56vw,680px);height:auto;color:rgba(245,166,35,.07);z-index:1;pointer-events:none}
+.hero-pitch{position:absolute;left:0;right:0;bottom:0;width:100%;height:70%;opacity:.55;pointer-events:none}
+.hero-inner{position:relative;z-index:2;flex:1;display:flex;align-items:center;padding-top:calc(var(--nav-h) + 2.5rem);padding-bottom:3.5rem;width:100%}
+.hero-grid{display:grid;gap:3rem;align-items:center;width:100%}
+@media(min-width:1024px){.hero-grid{grid-template-columns:1.25fr .75fr;gap:2rem}}
+.hero-live{display:flex;align-items:center;gap:.6rem;font-family:var(--f-head);font-size:.72rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.pulse{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.72)}}
+.hero-title{font-family:var(--f-disp);font-weight:400;font-size:clamp(4.6rem,15vw,11.5rem);line-height:.86;letter-spacing:.015em}
+.hero-title em{font-style:normal;color:var(--gold)}
+.hero-tag{font-family:var(--f-head);font-weight:500;letter-spacing:.2em;text-transform:uppercase;font-size:clamp(.9rem,2.1vw,1.25rem);color:var(--muted);margin-top:1.2rem}
+.hero-tag b{color:var(--text);font-weight:500}
+.hero-tag b:last-child{color:var(--gold)}
+.count-label{font-family:var(--f-head);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin:2.4rem 0 .8rem}
+.count{display:flex;align-items:stretch;gap:.55rem;max-width:560px}
+.count-cell{flex:1;background:var(--panel-glass);border:1px solid var(--line-strong);text-align:center;padding:.7rem .3rem .55rem}
+.count-num{display:block;font-family:var(--f-disp);font-size:clamp(2.4rem,6.5vw,4rem);line-height:1;color:var(--text)}
+.count-lab{display:block;font-family:var(--f-head);font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--faint);margin-top:.3rem}
+.count-sep{font-family:var(--f-disp);font-size:clamp(1.8rem,5vw,3rem);color:var(--gold);align-self:center;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.15}}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
+.crest-orb{position:relative;width:min(64vw,300px);margin:0 auto;aspect-ratio:1;display:grid;place-items:center}
+.crest-orb .crest{width:62%;height:auto;filter:drop-shadow(0 18px 30px rgba(0,0,0,.25));position:relative;z-index:2}
+.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 28s linear infinite}
+.ring text{font-family:var(--f-head);font-size:15px;font-weight:500;letter-spacing:9.5px;fill:var(--muted);text-transform:uppercase}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(min-width:1024px){.crest-orb{width:340px}}
+.scroll-cue{position:absolute;left:50%;bottom:74px;transform:translateX(-50%);z-index:3;display:none;flex-direction:column;align-items:center;gap:.5rem;font-family:var(--f-head);font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--faint)}
+.scroll-cue::after{content:"";width:1px;height:42px;background:var(--gold);animation:cue 1.8s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(min-width:1024px){.scroll-cue{display:flex}}
+.ticker{position:relative;z-index:2;border-block:1px solid var(--line);background:var(--ticker-bg);overflow:hidden;padding:.8rem 0}
+.ticker-track{display:flex;width:max-content;animation:ticker 30s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-group{display:flex;white-space:nowrap}
+.ticker-group span{font-family:var(--f-head);font-size:.78rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding:0 1.4rem}
+.ticker-group span b{color:var(--gold);font-weight:500}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* ============================================================
+   6. RESULTS STRIP
+   ============================================================ */
+.strip-arrows{display:flex;gap:.5rem;margin-bottom:.8rem}
+.strip-arrows button{width:44px;height:44px;border:1px solid var(--line-strong);display:grid;place-items:center;transition:border-color .2s,color .2s}
+.strip-arrows button:hover{border-color:var(--gold);color:var(--gold)}
+.strip{display:flex;gap:1.1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem;scrollbar-width:thin}
+.result-card{flex:0 0 min(320px,82vw);scroll-snap-align:start;background:var(--bg-2);border:1px solid var(--line);padding:1.3rem 1.4rem;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+.result-card:hover{transform:translateY(-5px);border-color:var(--gold-line);box-shadow:0 14px 32px -14px rgba(245,166,35,.28)}
+.res-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.1rem}
+.res-comp{font-family:var(--f-head);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+.res-badge{font-family:var(--f-head);font-weight:600;font-size:.72rem;letter-spacing:.1em;padding:.2rem .55rem}
+.res-badge.w{background:var(--gold);color:#141414}
+.res-badge.d{background:var(--track);color:var(--muted)}
+.res-badge.l{background:rgba(217,88,79,.18);color:var(--loss)}
+.res-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.7rem}
+.res-team{font-family:var(--f-head);font-size:.92rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.res-team.home{text-align:right}
+.res-score{font-family:var(--f-disp);font-size:2.6rem;line-height:1;letter-spacing:.05em}
+.res-score b{color:var(--gold);font-weight:400}
+.res-foot{display:flex;justify-content:space-between;gap:1rem;margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted)}
+
+/* ============================================================
+   7. FIXTURE SPOTLIGHT — single column, OUR data only.
+   Match Preview / opponent H2H / opponent form removed:
+   the league doesn't publish rivals' fixtures, so the page no
+   longer shows numbers we can't source. Our "Recent Form" is
+   derived automatically from CONFIG.results.
+   ============================================================ */
+.fixture{border:1px solid var(--line);background:var(--bg-2);overflow:hidden}
+.fx-left{padding:clamp(1.6rem,4vw,3rem);position:relative}
+.fx-md{position:absolute;top:0;right:0;font-family:var(--f-disp);font-size:clamp(4rem,9vw,7rem);color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.12);line-height:1;pointer-events:none}
+.fx-kicker{font-family:var(--f-head);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+.fx-teams{font-family:var(--f-disp);font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.02}
+.fx-vs{color:var(--gold);font-size:.55em;vertical-align:middle;margin:0 .5rem}
+.fx-meta{list-style:none;margin-top:1.8rem;display:grid;gap:.75rem}
+.fx-meta li{display:flex;align-items:center;gap:.8rem;color:var(--muted);font-size:.92rem}
+.fx-meta .icon{color:var(--gold);width:1.1em;height:1.1em;flex:none}
+/* ★ EDITABLE styling only — content comes from CONFIG.nextFixture.
+   Gold-outlined Matchday Info chips. */
+.md-info{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-top:1.6rem}
+.md-info-label{font-family:var(--f-head);font-size:.64rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--faint);margin-right:.2rem}
+.md-chip{font-family:var(--f-head);font-size:.74rem;letter-spacing:.06em;padding:.3rem .7rem;border:1px solid var(--gold-line);color:var(--text)}
+.md-chip b{color:var(--gold);font-weight:600}
+/* Recent Form chips — auto-derived from CONFIG.results */
+.form-row{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-top:1.5rem}
+.form-label{font-family:var(--f-head);font-size:.66rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-right:.3rem}
+.form-row .dot{width:24px;height:24px;display:grid;place-items:center;font-family:var(--f-head);font-size:.7rem;font-weight:600}
+.dot.w{background:var(--gold);color:#141414}
+.dot.d{background:var(--track);color:var(--muted)}
+.dot.l{background:rgba(217,88,79,.22);color:var(--loss)}
+/* Honest note: rivals' fixtures aren't published — point to WhatsApp */
+.fx-note{margin-top:1.6rem;font-size:.86rem;color:var(--muted);max-width:62ch}
+
+/* ============================================================
+   8. LEAGUE TABLE
+   ============================================================ */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);background:var(--bg-2)}
+table.league{width:100%;min-width:760px;border-collapse:collapse;font-size:.9rem}
+.league th{font-family:var(--f-head);font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-align:center;padding:.95rem .5rem;border-bottom:1px solid var(--line-strong);white-space:nowrap}
+.league th:nth-child(-n+2){text-align:left;padding-left:1.2rem}
+.league th button{font:inherit;color:inherit;letter-spacing:inherit;display:inline-flex;align-items:center;gap:.3rem;padding:.15rem .2rem;transition:color .2s}
+.league th button:hover{color:var(--gold)}
+.league th button::after{content:"";width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;opacity:0}
+.league th[aria-sort] button{color:var(--gold)}
+.league th[aria-sort="ascending"] button::after{border-bottom:5px solid var(--gold);opacity:1}
+.league th[aria-sort="descending"] button::after{border-top:5px solid var(--gold);opacity:1}
+.league td{padding:.8rem .5rem;text-align:center;border-bottom:1px solid var(--line);color:var(--muted)}
+.league td:nth-child(-n+2){text-align:left;padding-left:1.2rem}
+.league tbody tr{transition:background .2s}
+.league tbody tr:hover{background:rgba(128,128,128,.08)}
+.league .pos{font-family:var(--f-disp);font-size:1.05rem;color:var(--faint)}
+.league .team-name{font-family:var(--f-head);font-weight:500;letter-spacing:.05em;color:var(--text);text-transform:uppercase;font-size:.86rem}
+.league .pts{font-family:var(--f-head);font-weight:600;color:var(--text)}
+tr.hl{background:var(--gold-soft);box-shadow:inset 3px 0 0 var(--gold)}
+tr.hl .team-name{color:var(--gold)}
+tr.hl td{color:var(--text)}
+tr.zone-top{box-shadow:inset 0 -2px 0 rgba(245,166,35,.55)}
+tr.hl.zone-top{box-shadow:inset 3px 0 0 var(--gold),inset 0 -2px 0 rgba(245,166,35,.55)}
+tr.zone-bot{box-shadow:inset 0 2px 0 rgba(217,88,79,.6)}
+.legend{display:flex;flex-wrap:wrap;gap:1.4rem;margin-top:1rem;font-size:.78rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:.5rem}
+.legend i{width:14px;height:4px;display:inline-block}
+.legend .lg-gold{background:var(--gold)}
+.legend .lg-red{background:var(--loss)}
+.swipe-hint{display:none;font-family:var(--f-head);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-top:.8rem}
+@media(max-width:767px){.swipe-hint{display:block}}
+
+/* ============================================================
+   9. SQUAD
+   ============================================================ */
+.tabs{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2.2rem}
+.tab{font-family:var(--f-head);font-size:.78rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:.65rem 1.1rem;border:1px solid var(--line-strong);color:var(--muted);transition:all .22s var(--ease)}
+.tab:hover{border-color:var(--gold);color:var(--text)}
+.tab[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#141414}
+.tab em{font-style:normal;font-family:var(--f-disp);margin-left:.4rem;opacity:.65}
+.squad-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:1.1rem}
+.player{cursor:pointer;position:relative}
+.player-media{position:relative;overflow:hidden;aspect-ratio:4/5;background:var(--bg-3);border:1px solid var(--line)}
+.player-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06);transition:filter .45s,transform .45s var(--ease)}
+.player-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,10,10,.88))}
+.player:hover .player-media img,.player:focus-visible .player-media img{filter:grayscale(0) contrast(1.02);transform:scale(1.06)}
+.player-num{position:absolute;right:.55rem;bottom:.15rem;z-index:2;font-family:var(--f-disp);font-size:3.4rem;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(245,166,35,.85)}
+.player-overlay{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;background:rgba(13,13,13,.55);backdrop-filter:blur(2px);opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s var(--ease)}
+.player:hover .player-overlay,.player:focus-visible .player-overlay{opacity:1;transform:none}
+.ov-txt{font-family:var(--f-head);font-size:.74rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F5A623}
+.player-overlay .icon{width:20px;height:20px;color:#F5A623}
+.player-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;padding-top:.7rem}
+.player-meta h3{font-family:var(--f-head);font-weight:500;font-size:.92rem;letter-spacing:.05em;text-transform:uppercase}
+.player-meta p{font-size:.72rem;color:var(--faint);letter-spacing:.06em}
+
+/* ============================================================
+   10. MODALS
+   ============================================================ */
+.modal{position:fixed;inset:0;z-index:110;display:none}
+.modal.open{display:block}
+.modal-backdrop{position:absolute;inset:0;background:rgba(8,8,8,.82);backdrop-filter:blur(5px);animation:fadeIn .25s}
+@keyframes fadeIn{from{opacity:0}}
+.modal-panel{position:relative;z-index:2;width:min(100% - 2rem,860px);max-height:min(88vh,900px);overflow-y:auto;background:var(--bg-2);border:1px solid var(--line-strong);margin:6vh auto;animation:panelUp .35s var(--ease)}
+@keyframes panelUp{from{opacity:0;transform:translateY(26px)}}
+.modal-close{position:sticky;top:0;margin-left:auto;display:grid;place-items:center;width:46px;height:46px;background:var(--bg-3);border-left:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--muted);z-index:5;transition:color .2s,background .2s}
+.modal-close:hover{color:var(--gold);background:var(--gold-soft)}
+.modal-close .icon{width:20px;height:20px}
+.pm-head{display:flex;align-items:center;gap:1.4rem;padding:0 clamp(1.3rem,4vw,2.4rem) 1.4rem;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.pm-num{font-family:var(--f-disp);font-size:4.6rem;line-height:1;color:transparent;-webkit-text-stroke:2px var(--gold)}
+.pm-head h2{font-family:var(--f-disp);font-size:clamp(2.2rem,5vw,3.2rem);letter-spacing:.02em}
+.pm-head .badge{align-self:center}
+.pm-body{display:grid;gap:1.8rem;padding:clamp(1.3rem,4vw,2.4rem)}
+@media(min-width:760px){.pm-body{grid-template-columns:280px 1fr}}
+.pm-photo{border:1px solid var(--line);aspect-ratio:4/5;object-fit:cover;width:100%;filter:grayscale(.4)}
+.pm-block h4{font-family:var(--f-head);font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+.pm-bio{color:var(--muted);font-size:.95rem;margin-bottom:1.4rem}
+/* Height removed — facts are Year / Course / From only */
+.pm-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.6rem;margin-bottom:1.6rem}
+.pm-fact{border:1px solid var(--line);padding:.55rem .7rem}
+.pm-fact dt{font-family:var(--f-head);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+.pm-fact dd{font-size:.86rem;margin-top:.15rem}
+.pm-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:.6rem;margin-bottom:1.8rem}
+.pm-stat{border:1px solid var(--line);text-align:center;padding:.7rem .2rem}
+.pm-stat b{display:block;font-family:var(--f-disp);font-size:1.8rem;line-height:1;color:var(--gold);font-weight:400}
+.pm-stat span{font-family:var(--f-head);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+.pm-chart{max-width:420px}
+.am-body{padding:0 clamp(1.3rem,4vw,2.6rem) 2.4rem;max-width:760px}
+.am-top{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.am-top time{font-size:.8rem;color:var(--faint)}
+.cat{font-family:var(--f-head);font-size:.64rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:.28rem .6rem}
+.cat-gold{background:var(--gold);color:#141414}
+.cat-blue{background:var(--blue-2);color:#DCE6F5}
+.am-body h2{font-family:var(--f-disp);font-weight:400;font-size:clamp(1.9rem,4.5vw,2.9rem);margin-bottom:1.2rem}
+.am-img{width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:1.4rem;border:1px solid var(--line)}
+.am-body p{color:var(--muted);margin-bottom:1.1rem;font-size:.97rem}
+.am-body p:first-of-type::first-letter{font-family:var(--f-disp);font-size:3.2em;float:left;line-height:.8;margin:.06em .12em 0 0;color:var(--gold)}
+.am-video{position:relative;aspect-ratio:16/9;border:1px solid var(--line);margin-bottom:1.4rem;background:#000}
+.am-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.am-list{margin:0 0 1.1rem;padding-left:1.3rem;color:var(--muted);font-size:.97rem}
+.am-list li{margin-bottom:.45rem}
+.am-list li::marker{color:var(--gold)}
+.am-list a:hover{color:var(--gold)}
+
+/* ============================================================
+   11. NEWS MASONRY
+   ============================================================ */
+.news-grid{columns:3;column-gap:1.3rem}
+@media(max-width:1000px){.news-grid{columns:2}}
+@media(max-width:620px){.news-grid{columns:1}}
+.news-card{break-inside:avoid;margin-bottom:1.3rem;background:var(--bg-2);border:1px solid var(--line);transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+.news-card:hover{transform:translateY(-5px);border-color:var(--gold-line);box-shadow:0 16px 34px -16px rgba(245,166,35,.3)}
+.news-thumb{overflow:hidden;border-bottom:1px solid var(--line)}
+.news-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.news-card:hover .news-thumb img{transform:scale(1.05)}
+.r-16x10{aspect-ratio:16/10}.r-4x5{aspect-ratio:4/5}.r-1x1{aspect-ratio:1/1}.r-3x4{aspect-ratio:3/4}
+.news-body{padding:1.2rem 1.4rem 1.4rem}
+.news-top{display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-bottom:.8rem}
+.news-top time{font-size:.76rem;color:var(--faint)}
+.news-body h3{font-family:var(--f-head);font-weight:500;font-size:1.1rem;line-height:1.35;margin-bottom:.55rem}
+.news-body p{font-size:.86rem;color:var(--muted);margin-bottom:1rem}
+.read-more{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--f-head);font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);transition:gap .25s var(--ease)}
+.read-more:hover{gap:.8rem}
+
+/* ============================================================
+   12. CLUB / ABOUT — staff cards, honours, timeline
+   ============================================================ */
+.club-grid{display:grid;gap:3rem}
+@media(min-width:960px){.club-grid{grid-template-columns:1.1fr .9fr;gap:4rem}}
+.club-copy p{color:var(--muted);margin-bottom:1.1rem;font-size:.96rem}
+.club-copy p b{color:var(--text);font-weight:600}
+.honors{list-style:none;margin-top:2rem;border-top:1px solid var(--line)}
+.honors li{display:flex;align-items:center;gap:1rem;padding:1rem .2rem;border-bottom:1px solid var(--line);transition:padding-left .25s var(--ease)}
+.honors li:hover{padding-left:.8rem}
+.honors .icon{color:var(--gold);width:1.5em;height:1.5em;flex:none}
+.honors .yr{font-family:var(--f-disp);font-size:1.4rem;color:var(--gold);width:64px;flex:none}
+.honors .what{font-family:var(--f-head);font-size:.92rem;letter-spacing:.06em;text-transform:uppercase}
+.honors .res{margin-left:auto;font-size:.78rem;color:var(--faint)}
+/* ★ EDITABLE styling only — content comes from CONFIG.timeline */
+.timeline{list-style:none;margin-top:1.4rem;position:relative}
+.timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--gold-line)}
+.timeline li{position:relative;padding:0 0 1.4rem 2.3rem}
+.timeline li:last-child{padding-bottom:.2rem}
+.timeline li::before{content:"";position:absolute;left:0;top:.3rem;width:16px;height:16px;border-radius:50%;background:var(--bg-2);border:2px solid var(--gold)}
+.tl-year{font-family:var(--f-disp);font-size:1.45rem;color:var(--gold);line-height:1;display:block}
+.tl-event{color:var(--muted);font-size:.92rem;margin-top:.15rem}
+.club-aside .sec-kicker{margin-bottom:1.2rem}
+.staff-card{display:flex;gap:1.25rem;align-items:center;background:var(--bg-2);border:1px solid var(--line);padding:1.1rem;margin-bottom:1rem;transition:border-color .25s,transform .25s var(--ease)}
+.staff-card:hover{border-color:var(--gold-line);transform:translateX(4px)}
+.staff-card img{width:110px;height:110px;object-fit:cover;filter:grayscale(1);border:1px solid var(--line);flex:none}
+.staff-card h4{font-family:var(--f-head);font-weight:500;font-size:1.08rem;letter-spacing:.05em;text-transform:uppercase}
+.staff-card .role{font-family:var(--f-head);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.staff-card p{font-size:.82rem;color:var(--muted);margin-top:.35rem}
+
+/* ============================================================
+   13. GALLERY + LIGHTBOX
+   ============================================================ */
+.gal-filter{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.8rem}
+.gal-grid{columns:3;column-gap:1rem}
+@media(max-width:900px){.gal-grid{columns:2}}
+@media(max-width:560px){.gal-grid{columns:1}}
+.gal-item{break-inside:avoid;margin-bottom:1rem;position:relative;overflow:hidden;cursor:pointer;border:1px solid var(--line)}
+.gal-item.off{display:none}
+.gal-item img{width:100%;transition:transform .5s var(--ease);display:block}
+.gal-item:hover img{transform:scale(1.05)}
+/* Captions sit on a dark gradient over photos — pinned light in both themes */
+.gal-item figcaption{position:absolute;inset:auto 0 0 0;padding:2.2rem .9rem .8rem;background:linear-gradient(180deg,transparent,rgba(10,10,10,.9));font-family:var(--f-head);font-size:.8rem;letter-spacing:.08em;color:#F1EFE9;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s var(--ease)}
+.gal-item:hover figcaption,.gal-item:focus-visible figcaption{opacity:1;transform:none}
+.gal-cat{color:#F5A623;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;display:block;margin-bottom:.2rem}
+#lightbox .modal-panel{background:transparent;border:0;width:min(100% - 2rem,1000px);overflow:visible;margin-top:50vh;transform:translateY(-50%)}
+.lb-frame{position:relative}
+.lb-frame img{width:100%;max-height:72vh;object-fit:contain;border:1px solid var(--line-strong)}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:.9rem;color:var(--muted)}
+.lb-bar figcaption{font-family:var(--f-head);font-size:.84rem;letter-spacing:.06em}
+.lb-count{font-family:var(--f-disp);font-size:1.1rem;color:var(--gold);letter-spacing:.1em}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;background:rgba(13,13,13,.85);border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;color:#F1EFE9;transition:color .2s,border-color .2s}
+.lb-nav:hover{color:#F5A623;border-color:#F5A623}
+.lb-prev{left:-8px}.lb-next{right:-8px}
+.lb-close{position:fixed;top:1.2rem;right:1.2rem;width:48px;height:48px;background:rgba(13,13,13,.85);border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;color:#F1EFE9;z-index:5;transition:color .2s}
+.lb-close:hover{color:#F5A623}
+@media(max-width:700px){.lb-prev{left:4px}.lb-next{right:4px}}
+
+/* ============================================================
+   13b. MATCH CENTRE / HIGHLIGHTS — CONFIG.highlights
+   ============================================================ */
+.hl-grid{display:grid;gap:1.3rem}
+@media(min-width:900px){.hl-grid{grid-template-columns:1.4fr 1fr}}
+.hl-featured{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--line);background:var(--bg-3);cursor:pointer;transition:border-color .3s}
+.hl-featured:hover,.hl-featured:focus-visible{border-color:var(--gold-line)}
+.hl-featured img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.hl-featured:hover img{transform:scale(1.04)}
+.hl-play{position:absolute;inset:0;display:grid;place-items:center}
+.hl-play span{width:74px;height:74px;border-radius:50%;border:2px solid #F5A623;background:rgba(13,13,13,.55);backdrop-filter:blur(3px);display:grid;place-items:center;color:#F5A623;transition:transform .3s var(--ease),background .3s}
+.hl-featured:hover .hl-play span,.hl-featured:focus-visible .hl-play span{transform:scale(1.1);background:rgba(245,166,35,.25)}
+.hl-cap{position:absolute;inset:auto 0 0 0;padding:2.6rem 1.2rem .9rem;background:linear-gradient(180deg,transparent,rgba(10,10,10,.92));font-family:var(--f-head);font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#F1EFE9;text-align:left}
+.hl-duration{position:absolute;right:.55rem;bottom:.55rem;z-index:2;font-family:var(--f-head);font-size:.7rem;letter-spacing:.1em;padding:.15rem .5rem;background:rgba(13,13,13,.85);border:1px solid rgba(255,255,255,.2);color:#F1EFE9}
+.hl-featured .hl-duration{bottom:auto;top:.7rem}
+.hl-list{display:grid;gap:1rem;align-content:start}
+.hl-mini{display:grid;grid-template-columns:132px 1fr;gap:1rem;align-items:center;background:var(--bg-2);border:1px solid var(--line);padding:.7rem;cursor:pointer;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+.hl-mini:hover{transform:translateY(-3px);border-color:var(--gold-line);box-shadow:0 12px 26px -14px rgba(245,166,35,.3)}
+.hl-mini-thumb{position:relative;aspect-ratio:16/10;overflow:hidden}
+.hl-mini-thumb img{width:100%;height:100%;object-fit:cover}
+.hl-mini-body h4{font-family:var(--f-head);font-weight:500;font-size:.92rem;line-height:1.3;margin-bottom:.2rem}
+.hl-mini-body time{font-size:.72rem;color:var(--faint)}
+@media(max-width:480px){.hl-mini{grid-template-columns:104px 1fr}}
+
+/* ============================================================
+   13c. VENUE / GROUND — local-university level: address,
+   directions, facilities, map. No capacity/surface pretence.
+   Content comes from CONFIG.venue.
+   ============================================================ */
+.venue-grid{display:grid;gap:2.5rem}
+@media(min-width:900px){.venue-grid{grid-template-columns:1fr 1fr;gap:3rem}}
+.venue-name{font-family:var(--f-disp);font-weight:400;font-size:1.9rem;letter-spacing:.03em;margin-bottom:1.2rem}
+.venue-map{display:block;width:100%;aspect-ratio:4/3;min-height:300px;border:1px solid var(--line);background:var(--bg-3)}
+.chip-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
+.info-list .info-txt{display:block;font-size:.93rem}
+
+/* ============================================================
+   13d. FAN ZONE — CONFIG.fanZone
+   ============================================================ */
+.fans-grid{display:grid;gap:1.3rem}
+@media(min-width:900px){.fans-grid{grid-template-columns:repeat(3,1fr)}}
+.fan-card{display:flex;flex-direction:column;gap:1rem;background:var(--bg-2);border:1px solid var(--line);padding:2rem 1.7rem;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+.fan-card:hover{transform:translateY(-5px);border-color:var(--gold-line);box-shadow:0 16px 34px -16px rgba(245,166,35,.3)}
+.fan-icon{width:52px;height:52px;border:1px solid var(--gold-line);background:var(--gold-soft);display:grid;place-items:center;color:var(--gold);flex:none}
+.fan-icon .icon{width:24px;height:24px}
+.fan-card h3{font-family:var(--f-head);font-weight:500;font-size:1.15rem;letter-spacing:.04em;text-transform:uppercase}
+.fan-card p{font-size:.88rem;color:var(--muted)}
+.fan-card .btn{margin-top:auto;justify-content:center}
+
+/* ============================================================
+   14. JOIN BANNER + CONTACT
+   The join panel keeps its navy "match-night" look in both
+   themes — its copy column re-pins the dark-theme tokens so
+   text contrast is guaranteed (the form card stays theme-aware).
+   ============================================================ */
+.join-panel{background:var(--blue-ink);border:1px solid var(--blue-line);display:grid;padding:clamp(1.8rem,5vw,4rem);gap:2.5rem}
+@media(min-width:940px){.join-panel{grid-template-columns:1.05fr .95fr;gap:4rem}}
+.join-copy{--text:#F1EFE9;--muted:#B9C6DC;--faint:#8FA9D6;--gold:#F5A623;--gold-line:rgba(245,166,35,.45);--line:rgba(255,255,255,.12);--line-strong:rgba(255,255,255,.3)}
+.join-copy .kicker{font-family:var(--f-head);font-size:.72rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.join-copy h2{font-family:var(--f-disp);font-weight:400;font-size:clamp(3rem,7.5vw,5.4rem);line-height:.95}
+.join-copy h2 em{font-style:normal;color:var(--gold)}
+.join-copy>p{color:#B9C6DC;margin-top:1.2rem;max-width:46ch}
+.join-facts{list-style:none;margin-top:1.8rem;display:grid;gap:.7rem}
+.join-facts li{display:flex;gap:.8rem;align-items:baseline;color:#C6D2E6;font-size:.92rem}
+.join-facts .icon{color:var(--gold);flex:none;transform:translateY(2px)}
+.join-copy .btn-ghost{margin-top:1.8rem;border-color:rgba(255,255,255,.35);color:#F1EFE9}
+.join-copy .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.join-form{background:var(--bg-2);border:1px solid var(--line-strong);padding:clamp(1.4rem,3.5vw,2.2rem);align-self:center}
+.join-form h3,.contact-form h3{font-family:var(--f-disp);font-weight:400;font-size:1.7rem;margin-bottom:1.3rem;letter-spacing:.03em}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-family:var(--f-head);font-size:.68rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:.45rem}
+.field input,.field select,.field textarea{width:100%;background:var(--input-bg);border:1px solid var(--line-strong);color:var(--text);font:inherit;font-size:.95rem;padding:.85rem 1rem;transition:border-color .2s;border-radius:0}
+.field textarea{resize:vertical;min-height:130px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23F5A623' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.field-row{display:grid;gap:1.1rem}
+@media(min-width:560px){.field-row{grid-template-columns:1fr 1fr}}
+.join-form .btn,.contact-form .btn{width:100%;justify-content:center;margin-top:.4rem}
+.form-note{font-size:.76rem;color:var(--faint);margin-top:.9rem}
+.field-check{display:flex;gap:.7rem;align-items:flex-start;margin-bottom:1.1rem}
+.field-check input{width:18px;height:18px;margin-top:.3em;accent-color:var(--gold);flex:none}
+.field-check label{font-family:var(--f-body);font-size:.82rem;color:var(--muted);letter-spacing:0;text-transform:none;font-weight:400;line-height:1.5}
+.link-btn{color:var(--gold);text-decoration:underline;font:inherit;padding:0}
+.link-btn:hover{color:var(--text)}
+.form-success{display:flex;align-items:center;gap:.8rem;border:1px solid var(--gold);background:var(--gold-soft);color:var(--text);padding:1.2rem 1.4rem;font-family:var(--f-head);letter-spacing:.08em;text-transform:uppercase;font-size:.9rem}
+.form-success .icon{color:var(--gold);width:1.3em;height:1.3em;flex:none}
+.contact-grid{display:grid;gap:3rem}
+@media(min-width:940px){.contact-grid{grid-template-columns:1.15fr .85fr;gap:4rem}}
+.info-list{list-style:none;display:grid;gap:1.3rem;margin-bottom:2rem}
+.info-list li{display:flex;gap:1rem;align-items:flex-start}
+.info-list .icon{color:var(--gold);width:1.4em;height:1.4em;margin-top:.3em;flex:none}
+.info-list b{display:block;font-family:var(--f-head);font-size:.68rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:.2rem}
+.info-list a:hover{color:var(--gold)}
+.visit-card{border:1px solid var(--line);background:var(--bg-2);padding:1.4rem;margin-bottom:2rem}
+.visit-card h4{font-family:var(--f-head);font-size:.7rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.visit-card p{font-size:.9rem;color:var(--muted)}
+.socials{display:flex;gap:.7rem;flex-wrap:wrap}
+.socials a{width:46px;height:46px;border:1px solid var(--line-strong);display:grid;place-items:center;color:var(--muted);transition:all .25s var(--ease)}
+.socials a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+.socials .icon{width:18px;height:18px}
+
+/* ============================================================
+   15. FOOTER + TOASTS
+   ============================================================ */
+.site-footer{border-top:1px solid var(--line);background:var(--bg-2)}
+.foot-grid{display:grid;gap:2.5rem;padding-block:3.5rem}
+@media(min-width:860px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1.3fr}}
+.foot-brand{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.foot-brand svg{width:40px;height:47px}
+.foot-brand b{font-family:var(--f-disp);font-size:1.4rem;font-weight:400;letter-spacing:.05em}
+.site-footer p{font-size:.88rem;color:var(--muted)}
+.site-footer h4{font-family:var(--f-head);font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem}
+.foot-links{list-style:none;display:grid;gap:.55rem}
+.foot-links a{font-size:.9rem;color:var(--muted);transition:color .2s,padding-left .2s}
+.foot-links a:hover{color:var(--gold);padding-left:.35rem}
+.foot-contact{list-style:none;display:grid;gap:.8rem;font-size:.88rem;color:var(--muted)}
+.foot-contact li{display:flex;gap:.7rem;align-items:flex-start}
+.foot-contact .icon{color:var(--gold);margin-top:.25em;flex:none;width:1.2em;height:1.2em}
+.news-form{display:flex;border:1px solid var(--line-strong)}
+.news-form input{flex:1;min-width:0;background:var(--input-bg);border:0;color:var(--text);padding:.85rem 1rem;font:inherit;font-size:.9rem}
+.news-form input:focus{outline:none}
+.news-form button{background:var(--gold);color:#141414;font-family:var(--f-head);font-weight:600;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;padding:0 1.2rem;transition:background .2s}
+.news-form button:hover{background:#FFB63A}
+.foot-bottom{border-top:1px solid var(--line);padding-block:1.2rem;display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--faint)}
+.foot-bottom button{color:var(--faint);font-size:.78rem;transition:color .2s}
+.foot-bottom button:hover{color:var(--gold)}
+.foot-bottom em{font-style:normal;color:var(--muted)}
+.foot-legal{display:flex;gap:1.2rem;flex-wrap:wrap}
+.toasts{position:fixed;bottom:1.4rem;right:1.4rem;z-index:150;display:grid;gap:.7rem;max-width:min(90vw,380px)}
+.toast{display:flex;align-items:center;gap:.8rem;background:var(--bg-3);border:1px solid var(--line-strong);border-left:3px solid var(--gold);padding:.9rem 1.2rem;font-size:.9rem;opacity:0;transform:translateY(14px);transition:opacity .3s,transform .3s var(--ease)}
+.toast.show{opacity:1;transform:none}
+.toast .icon{color:var(--gold);flex:none;width:1.2em;height:1.2em}
+
+/* ============================================================
+   16. LIGHT MODE — full-page coverage. The hero now flips too:
+   same gold/blue backdrop recipe on a warm daylight base.
+   ============================================================ */
+[data-theme="light"]{
+  color-scheme:light;
+  --bg:#F3F0E9; --bg-2:#FCFBF8; --bg-3:#E9E5DA;
+  --line:rgba(23,21,15,.14); --line-strong:rgba(23,21,15,.32);
+  --text:#17150F; --muted:#5D5949; --faint:#8B8574;
+  --gold:#B87A0A; --gold-soft:rgba(184,122,10,.13); --gold-line:rgba(184,122,10,.5);
+  --blue:#1B3A6B; --blue-2:#2A4E85; --blue-ink:#0F1E38; --blue-line:rgba(27,58,107,.4);
+  --win:#B87A0A; --draw:#6E6A5E; --loss:#B23A31;
+  --track:rgba(23,21,15,.12); --input-bg:#FFFFFF;
+  --nav-glass:rgba(243,240,233,.9);
+  --menu-bg:rgba(248,246,240,.98);
+  --ticker-bg:rgba(243,240,233,.92);
+  --panel-glass:rgba(255,255,255,.82);
+  --md-bg:#F3F0E9;
+}
+[data-theme="light"] ::selection{background:#17150F;color:#F3F0E9}
+/* Light hero: same recipe, daylight palette — dark gold hairlines,
+   soft blue band, stronger gold glow, warm sky base */
+[data-theme="light"] .hero-bg{
+  background:
+    repeating-linear-gradient(90deg,rgba(184,122,10,.09) 0 1px,transparent 1px 120px),
+    linear-gradient(180deg,transparent 30%,rgba(27,58,107,.14) 45%,rgba(27,58,107,.05) 58%,transparent 70%),
+    radial-gradient(62% 55% at 12% 0%,rgba(245,166,35,.25),transparent 70%),
+    radial-gradient(130% 100% at 50% 0%,#EFE6CF 0%,var(--md-bg) 74%);
+}
+[data-theme="light"] .hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,.05) 40%,rgba(243,240,233,.55) 84%,var(--md-bg) 100%),
+             linear-gradient(90deg,rgba(243,240,233,.5) 0%,rgba(243,240,233,0) 70%);
+}
+[data-theme="light"] .hero-mark{color:rgba(184,122,10,.1)}
+[data-theme="light"] .hero-pitch line{stroke:rgba(23,21,15,.22)}
+[data-theme="light"] .hero-pitch circle{stroke:rgba(23,21,15,.22);fill:rgba(23,21,15,.3)}
+[data-theme="light"] .fx-md{-webkit-text-stroke-color:rgba(23,21,15,.14)}
+[data-theme="light"] .league tbody tr:hover{background:rgba(23,21,15,.045)}
+[data-theme="light"] .dot.l{background:rgba(217,88,79,.18)}
+[data-theme="light"] .res-badge.l{background:rgba(217,88,79,.12)}
+[data-theme="light"] .foot-bottom{border-color:var(--line)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  [data-reveal]{opacity:1;transform:none;transition:none}
+  .ticker-track,.ring,.pulse,.scroll-cue::after,.count-sep{animation:none}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#home">Skip to main content</a>
+
+<!-- ============================================================
+     SVG SPRITE — crest, ghost crest + icon set
+     ============================================================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="crest" viewBox="0 0 120 140">
+      <path d="M60 4 112 21v47c0 33-21 54-52 67C29 122 8 101 8 68V21Z" fill="#132A4E" stroke="#F5A623" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M60 13 103 27v40c0 27-17 45-43 56-26-11-43-29-43-56V27Z" fill="none" stroke="rgba(245,166,35,.45)" stroke-width="1.5"/>
+      <text x="60" y="31" text-anchor="middle" font-family="Oswald,sans-serif" font-size="7.5" letter-spacing="2.4" fill="#9FB3D4">EST. 2016 · CHUKA</text>
+      <text x="60" y="77" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="52" fill="#F5A623">P</text>
+      <circle cx="60" cy="91" r="11.5" fill="#F1EFE9"/>
+      <path d="M60 84.8 65.1 88.5 63.1 94.5 56.9 94.5 54.9 88.5Z" fill="#0D0D0D"/>
+      <path d="M60 79.5v5.3M65.1 88.5l5-1.7M63.1 94.5l3.2 4.2M56.9 94.5l-3.2 4.2M54.9 88.5l-5-1.7" stroke="#0D0D0D" stroke-width="1.2" fill="none"/>
+      <path d="M27 70l3 3-3 3-3-3Z" fill="#F5A623"/>
+      <path d="M93 70l3 3-3 3-3-3Z" fill="#F5A623"/>
+      <text x="60" y="115" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="10" letter-spacing="2.6" fill="#F1EFE9">PHILITES</text>
+    </symbol>
+    <symbol id="crest-ghost" viewBox="0 0 120 140">
+      <path d="M60 4 112 21v47c0 33-21 54-52 67C29 122 8 101 8 68V21Z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M60 13 103 27v40c0 27-17 45-43 56-26-11-43-29-43-56V27Z" fill="none" stroke="currentColor" stroke-width="1"/>
+      <text x="60" y="92" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="66" fill="currentColor">P</text>
+    </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h12"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v6a4 4 0 0 1-8 0Z"/><path d="M8 5H4v2a4 4 0 0 0 4 4M16 5h4v2a4 4 0 0 1-4 4M12 14v4M8 21h8M10 18h4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12.5 5.5 5.5L20 7"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 20 6v6c0 5-3.5 8-8 9.5C7.5 20 4 17 4 12V6Z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M19.4 4.6l-1.8 1.8M6.4 17.6l-1.8 1.8"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 21l4.7-1.2A8.8 8.8 0 1 0 12 3.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.4 8.2c-.25 0-.55.05-.8.35-.3.35-.85 1-.85 2.1 0 1.1.75 2.4 1.15 3 .7 1.05 2.05 2.5 4.05 3.2 1.3.45 2 .5 2.55.4.55-.1 1.3-.65 1.5-1.25.15-.5.15-.9.1-1-.1-.15-.3-.25-.6-.4l-1.6-.8c-.3-.15-.55-.1-.75.15l-.6.75c-.15.15-.35.2-.6.1-.9-.4-1.7-.95-2.4-1.75-.5-.6-.85-1.2-1.05-1.7-.1-.25-.05-.45.1-.6l.5-.55c.25-.3.2-.55.05-.8l-.75-1.5c-.15-.3-.35-.45-.7-.45Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.6-9.2-9A5.2 5.2 0 0 1 12 6.5 5.2 5.2 0 0 1 21.2 11c-2.2 4.4-9.2 9-9.2 9Z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-5-6.3"/></symbol>
+    <symbol id="i-mega" viewBox="0 0 24 24"><path d="M20 4 7 8.5H4.5A1.5 1.5 0 0 0 3 10v4a1.5 1.5 0 0 0 1.5 1.5H7l13 4.5V4Z"/><path d="M7 15.5V19a1.5 1.5 0 0 0 3 0v-2.5"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path d="M15.5 8.5H13V7a1 1 0 0 1 1-1h1.5V3H13.5A3.5 3.5 0 0 0 10 6.5v2H7.5v3H10V21h3v-9.5h2.3Z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16.7" cy="7.3" r="1.2"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 3.5h4.6l4.1 5.8L17.7 3.5H21l-6.5 8.5 6.9 8.5H16.8l-4.5-6.3L7 20.5H3.6l7-9L4 3.5Z"/></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24"><path d="M16.6 3c.4 2.3 1.9 3.9 4.4 4.2v3.4c-1.6 0-3.1-.5-4.4-1.4v6.6A6.4 6.4 0 1 1 10 9.4v3.6a2.9 2.9 0 1 0 3 2.9V3h3.6Z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<header class="site-nav" id="navbar">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#home" aria-label="Philites FC — back to top">
+      <svg aria-hidden="true"><use href="#crest"/></svg>
+      <span class="brand-name">PHILITES<small>CHUKA PREMIER LEAGUE</small></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#fixtures">Fixtures</a></li>
+        <li><a href="#table">Table</a></li>
+        <li><a href="#squad">Squad</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#club">Club</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#venue">Venue</a></li>
+        <li><a href="#fans">Fans</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-gold nav-cta" href="#join">Join the Philites</a>
+      <button class="theme-toggle" id="themeBtn" aria-pressed="false" aria-label="Switch to light mode"><svg class="icon"><use href="#i-sun"/></svg></button>
+      <button class="nav-burger" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><svg class="icon"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <ul>
+    <li><a href="#home"><span>01</span>Home</a></li>
+    <li><a href="#fixtures"><span>02</span>Fixtures</a></li>
+    <li><a href="#table"><span>03</span>Table</a></li>
+    <li><a href="#squad"><span>04</span>Squad</a></li>
+    <li><a href="#news"><span>05</span>News</a></li>
+    <li><a href="#club"><span>06</span>Club</a></li>
+    <li><a href="#gallery"><span>07</span>Gallery</a></li>
+    <li><a href="#highlights"><span>08</span>Highlights</a></li>
+    <li><a href="#venue"><span>09</span>Venue</a></li>
+    <li><a href="#fans"><span>10</span>Fans</a></li>
+    <li><a href="#contact"><span>11</span>Contact</a></li>
+  </ul>
+  <a class="btn btn-gold" href="#join">Join the Philites</a>
+</nav>
+
+<main>
+<!-- ============================================================
+     HERO — fully theme-aware now (light version defined in CSS §16)
+     ============================================================ -->
+<section class="hero" id="home" aria-label="Philites FC — match day">
+  <div class="hero-bg" role="img" aria-label="Floodlit stadium backdrop in gold and royal blue"></div>
+  <svg class="hero-mark" viewBox="0 0 120 140" aria-hidden="true"><use href="#crest-ghost"/></svg>
+  <svg class="hero-pitch" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <g fill="none" stroke="rgba(255,255,255,.17)" stroke-width="2">
+      <line x1="0" y1="440" x2="1200" y2="440"/>
+      <circle cx="600" cy="440" r="170"/>
+      <circle cx="600" cy="440" r="5" fill="rgba(255,255,255,.22)" stroke="none"/>
+    </g>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="hero-live" id="mdNote"><span class="pulse" aria-hidden="true"></span></p>
+        <h1 class="hero-title">PHI<em>L</em>ITES</h1>
+        <p class="hero-tag">One Team. One Chuka. <b>One Philites.</b></p>
+        <p class="count-label" id="kickLabel"></p>
+        <div class="count" role="timer" aria-label="Countdown to kick-off">
+          <div class="count-cell"><span class="count-num" id="cdD">--</span><span class="count-lab">Days</span></div>
+          <span class="count-sep" aria-hidden="true">:</span>
+          <div class="count-cell"><span class="count-num" id="cdH">--</span><span class="count-lab">Hrs</span></div>
+          <span class="count-sep" aria-hidden="true">:</span>
+          <div class="count-cell"><span class="count-num" id="cdM">--</span><span class="count-lab">Min</span></div>
+          <span class="count-sep" aria-hidden="true">:</span>
+          <div class="count-cell"><span class="count-num" id="cdS">--</span><span class="count-lab">Sec</span></div>
+        </div>
+        <div class="hero-ctas">
+          <a class="btn btn-gold" href="#fixtures">View Fixtures <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="#squad">Meet the Squad</a>
+        </div>
+      </div>
+      <div class="crest-orb" aria-hidden="true">
+        <svg class="ring" viewBox="0 0 300 300">
+          <defs><path id="ringPath" d="M150,150 m-132,0 a132,132 0 1,1 264,0 a132,132 0 1,1 -264,0"/></defs>
+          <text><textPath href="#ringPath">One Team · One Chuka · One Philites · Est. 2016 ·&#160;</textPath></text>
+        </svg>
+        <svg class="crest" viewBox="0 0 120 140"><use href="#crest"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <p class="scroll-cue" aria-hidden="true">Scroll</p>
+
+  <!-- Ticker groups rendered from CONFIG.ticker -->
+  <div class="ticker" aria-label="Club headlines ticker">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     01 — LATEST RESULTS (CONFIG.results)
+     ============================================================ -->
+<section class="sec" id="results" aria-labelledby="results-title">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-index">01</span>
+      <div><p class="sec-kicker">Latest Results</p><h2 id="results-title">FULL TIME</h2></div>
+      <div class="sec-rule" aria-hidden="true"></div>
+      <div class="strip-arrows">
+        <button id="resPrev" aria-label="Scroll results backwards"><svg class="icon"><use href="#i-chev-l"/></svg></button>
+        <button id="resNext" aria-label="Scroll results forwards"><svg class="icon"><use href="#i-chev-r"/></svg></button>
+      </div>
+    </div>
+    <div class="strip" id="resStrip" tabindex="0" aria-label="Recent match results, horizontally scrollable"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 — NEXT FIXTURE SPOTLIGHT (CONFIG.nextFixture)
+     Match Preview removed — only data we can actually source.
+     ============================================================ -->
+<section class="sec sec--alt" id="fixtures" aria-labelledby="fixtures-title">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-index">02</span>
+      <div><p class="sec-kicker">Next Fixture</p><h2 id="fixtures-title">MATCHDAY SPOTLIGHT</h2></div>
+      <div class="sec-rule" aria-hidden="true"></div>
+    </div>
+    <article class="fixture" data-reveal aria-label="Next fixture details">
+      <div class="fx-left" id="fxLeft"></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================================
+     03 — LEAGUE TABLE (CONFIG.leagueTable + CONFIG.leagueMeta)
+     ============================================================ -->
+<section class="sec" id="table" aria-labelledby="table-title">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-index">03</span>
+      <div><p class="sec-kicker" id="leagueKicker">Chuka Premier League · University Division · 2026/27</p><h2 id="table-title">LEAGUE STANDINGS</h2></div>
+      <div class="sec-rule" aria-hidden="true"></div>
+      <span class="sec-action" id="leagueMW">Match Week 16</span>
+    </div>
+    <div class="table-wrap" data-reveal role="region" aria-label="Chuka Premier League standings table" tabindex="0">
+      <table class="league" id="leagueTable">
+        <thead>
+          <tr>
+            <th scope="col">Pos</th>
+            <th scope="col">Team</th>
+            <th scope="col"><button data-key="p">P</button></th>
+            <th scope="col"><button data-key="w">W</button></th>
+            <th scope="col"><button data-key="d">D</button></th>
+            <th scope="col"><button data-key="l">L</button></th>
+            <th scope="col"><button data-key="gf">GF</button></th>
+            <th scope="col"><button data-key="ga">GA</button></th>
+            <th scope="col"><button data-key="gd">GD</button></th>
+            <th scope="col"><button data-key="pts">Pts</button></th>
+          </tr>
+        </thead>
+        <tbody id="leagueBody"></tbody>
+      </table>
+    </div>
+    <p class="swipe-hint">Swipe table sideways to see all columns</p>
+    <div class="legend" data-reveal>
+      <span><i class="lg-gold"></i>Title places (top 2)</span>
+      <span><i class="lg-red"></i>Relegation zone (bottom 2)</span>
+      <span style="color:var(--faint)">Click a column header to sort</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     04 — SQUAD (CONFIG.players; height removed everywhere)
+     ============================================================ -->
+<section class="sec sec--alt" id="squad" aria-labelledby="squad-title">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-index">04</span>
+      <div><p class="sec-kicker">The 2026/27 Roster</p><h2 id="squad-title">FIRST TEAM SQUAD</h2></div>
+      <div class="sec-rule" aria-hidden="true"></div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Filter squad by position" id="squadTabs" data-reveal></div>
+    <div class="squad-grid" id="squadGrid" role="tabpanel" aria-label="Player cards"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     05 — LATEST NEWS (CONFIG.news)
+     ============================================================ -->
+<section class="sec" id="news" aria-labelledby="news-title">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-index">05</span>
+      <div><p class="sec-kicker">From the Dressing Room</p><h2 id="news-title">LATEST NEWS</h2></div>
+      <div class="sec-rule" aria-hidden="true"></div>
+    </div>
+    <div class="news-grid" id="newsGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     06 — CLUB INFO / ABOUT (history + honours + timeline)
+     ============================================================ -->
+<section class="sec sec--alt" id="club" aria-labelledby="club-title">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-index">06</span>
+      <div><p class="sec-kicker">Est. 2016 · Chuka, Kenya</p><h2 id="club-title">THE CLUB</h2></div>
+      <div class="sec-rule" aria-hidden="true"></div>
+    </div>
+
+    <div class="club-grid">
+      <div class="club-copy" data-reveal>
+        <!-- ★ EDITABLE: club history + honours -->
+        <p><b>The Philites were born in 2016</b>, on the dust pitches behind Hall C at Chuka University, when a group of students from the evening philosophy discussions decided their arguments needed a scoreboard. They took one rule with them onto the pitch: <b>think first, strike fast.</b></p>
+        <p>A decade later, the pickup side is Chuka University's team in the Chuka Premier League (University Division) — playing in our black-and-white striped home shirt, carrying a gold and royal blue badge. The club is student-run, coached by volunteers who never stopped loving the game, and backed by the loudest student end in the county.</p>
+        <p>Every season starts the same way: open trials, open doors — because the badge belongs to the campus.</p>
+
+        <h3 class="sec-kicker" style="margin-top:2.4rem">Honours Board</h3>
+        <ul class="honors">
+          <li data-reveal style="--i:0"><svg class="icon"><use href="#i-trophy"/></svg><span class="yr">2024</span><span class="what">Chuka Premier League</span><span class="res">4th Place</span></li>
+          <li data-reveal style="--i:1"><svg class="icon"><use href="#i-trophy"/></svg><span class="yr">2023</span><span class="what">Chuka Super Cup</span><span class="res">Winners</span></li>
+          <li data-reveal style="--i:2"><svg class="icon"><use href="#i-trophy"/></svg><span class="yr">2021</span><span class="what">University Division</span><span class="res">Champions</span></li>
+        </ul>
+
+        <h3 class="sec-kicker" style="margin-top:2.6rem">Our Story</h3>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+
+      <aside class="club-aside">
+        <p class="sec-kicker" data-reveal>Coaching Staff</p>
+        <div class="staff-card" data-reveal style="--i:0">
+          <img src="https://picsum.photos/seed/ph-coach1/220/220.jpg?grayscale" alt="Head Coach Stephen Odhiambo" loading="lazy" decoding="async">
+          <div><h4>Stephen Odhiambo</h4><span class="role">Head Coach</span><p>CAF C licensed. Former Shabana FC midfielder. Believes the first pass is a philosophy statement.</p></div>
+        </div>
+        <div class="staff-card" data-reveal style="--i:1">
+          <img src="https://picsum.photos/seed/ph-coach2/220/220.jpg?grayscale" alt="Assistant Coach Grace Wairimu" loading="lazy" decoding="async">
+          <div><h4>Grace Wairimu</h4><span class="role">Assistant Coach</span><p>Runs the pressing drills and the video sessions. Ex-captain of the university women's side.</p></div>
+        </div>
+        <div class="staff-card" data-reveal style="--i:2">
+          <img src="https://picsum.photos/seed/ph-coach3/220/220.jpg?grayscale" alt="Goalkeeping Coach Patrick Yego" loading="lazy" decoding="async">
+          <div><h4>Patrick Yego</h4><span class="role">Goalkeeping Coach</span><p>400-plus league appearances as a keeper across Nandi and Uasin Gishu. Now he builds walls.</p></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     07 — GALLERY (CONFIG.gallery)
+     ============================================================ -->
+<section class="sec" id="gallery" aria-labelledby="gallery-title">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-index">07</span>
+      <div><p class="sec-kicker">Through the Lens</p><h2 id="gallery-title">GALLERY</h2></div>
+      <div class="sec-rule" aria-hidden="true"></div>
+    </div>
+    <div class="gal-filter" role="tablist" aria-label="Filter gallery" id="galFilter" data-reveal>
+      <button class="tab" role="tab" aria-selected="true" data-filter="All">All</button>
+      <button class="tab" role="tab" aria-selected="false" data-filter="Match Day">Match Day</button>
+      <button class="tab" role="tab" aria-selected="false" data-filter="Training">Training</button>
+      <button class="tab" role="tab" aria-selected="false" data-filter="Team Events">Team Events</button>
+    </div>
+    <div class="gal-grid" id="galGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     08 — MATCH CENTRE / HIGHLIGHTS (CONFIG.highlights)
+     ============================================================ -->
+<section class="sec" id="highlights" aria-labelledby="highlights-title">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-index">08</span>
+      <div><p class="sec-kicker">Video Match Centre</p><h2 id="highlights-title">HIGHLIGHTS</h2></div>
+      <div class="sec-rule" aria-hidden="true"></div>
+      <span class="sec-action">Season 2026/27</span>
+    </div>
+    <div class="hl-grid">
+      <div id="hlFeatured"></div>
+      <div class="hl-list" id="hlList" aria-label="More highlights"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     09 — VENUE / GROUND (CONFIG.venue — local level, no capacity)
+     ============================================================ -->
+<section class="sec sec--alt" id="venue" aria-labelledby="venue-title">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-index">09</span>
+      <div><p class="sec-kicker">Our Ground</p><h2 id="venue-title">THE VENUE</h2></div>
+      <div class="sec-rule" aria-hidden="true"></div>
+    </div>
+    <div class="venue-grid">
+      <div data-reveal>
+        <h3 class="venue-name" id="venueName"></h3>
+        <ul class="info-list" id="venueInfo" style="margin-bottom:0"></ul>
+      </div>
+      <div data-reveal style="--i:1">
+        <iframe id="venueMap" class="venue-map"
+                src="https://www.google.com/maps?q=Chuka+University,+Chuka,+Kenya&z=16&output=embed"
+                title="Map — Chuka University pitch"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="chip-row" id="venueChips" data-reveal role="list" aria-label="Facilities"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10 — FAN ZONE (CONFIG.fanZone)
+     ============================================================ -->
+<section class="sec" id="fans" aria-labelledby="fans-title">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-index">10</span>
+      <div><p class="sec-kicker">Matchday Family</p><h2 id="fans-title">FAN ZONE</h2></div>
+      <div class="sec-rule" aria-hidden="true"></div>
+    </div>
+    <div class="fans-grid" id="fansGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11 — JOIN THE PHILITES
+     ============================================================ -->
+<section class="sec sec--alt" id="join" aria-labelledby="join-title">
+  <div class="wrap">
+    <div class="join-panel" data-reveal>
+      <div class="join-copy">
+        <p class="kicker">Call to Action · 2026/27 Season</p>
+        <h2 id="join-title">TRIALS ARE <em>OPEN.</em></h2>
+        <p>Think you belong in the stripes? Open trials for the 2026/27 Chuka Premier League season are live. Every Chuka University student is welcome — bring boots, bring belief.</p>
+        <ul class="join-facts">
+          <li><svg class="icon"><use href="#i-cal"/></svg>Open trials: Saturday 22 Nov 2026, 9:00 AM</li>
+          <li><svg class="icon"><use href="#i-pin"/></svg>Chuka University pitch · Pitch A</li>
+          <li><svg class="icon"><use href="#i-shield"/></svg>Bring: student ID, boots, shin guards, water bottle</li>
+        </ul>
+        <!-- href is filled from CONFIG.whatsappGroup in the script -->
+        <a class="btn btn-ghost" data-whatsapp href="#" target="_blank" rel="noopener">Join the WhatsApp Group <svg class="icon"><use href="#i-wa"/></svg></a>
+      </div>
+      <form class="join-form" id="joinForm" data-toast="Registration received. See you at Pitch A on 22 Nov — bring your boots." data-success="Registration received. See you at Pitch A on 22 Nov." novalidate>
+        <h3>Register for Trials</h3>
+        <div class="field-row">
+          <div class="field"><label for="jName">Full Name</label><input id="jName" name="name" type="text" required autocomplete="name" placeholder="e.g. Daniel Mutua"></div>
+          <div class="field"><label for="jMail">University Email</label><input id="jMail" name="email" type="email" required autocomplete="email" placeholder="you@cuk.ac.ke"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="jPos">Preferred Position</label>
+            <select id="jPos" name="position" required>
+              <option value="" selected disabled>Select position</option>
+              <option>Goalkeeper</option><option>Defender</option><option>Midfielder</option><option>Forward</option>
+            </select>
+          </div>
+          <div class="field"><label for="jPhone">Phone Number</label><input id="jPhone" name="phone" type="tel" required autocomplete="tel" placeholder="+254 7XX XXX XXX"></div>
+        </div>
+        <button class="btn btn-gold" type="submit">Register for Trials <svg class="icon"><use href="#i-arrow"/></svg></button>
+        <p class="form-note">Registration closes 20 Nov 2026. Shortlisted players are contacted by email.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     12 — CONTACT (CONFIG.contact + CONFIG.socials)
+     ============================================================ -->
+<section class="sec" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-index">12</span>
+      <div><p class="sec-kicker">Get in Touch</p><h2 id="contact-title">CONTACT THE CLUB</h2></div>
+      <div class="sec-rule" aria-hidden="true"></div>
+    </div>
+
+    <div class="contact-grid">
+      <form class="contact-form" id="contactForm" data-toast="Message sent. The club media team replies within 48 hours." data-success="Message sent. We reply within 48 hours." novalidate data-reveal>
+        <h3>Send Us a Message</h3>
+        <div class="field-row">
+          <div class="field"><label for="cName">Name</label><input id="cName" name="name" type="text" required autocomplete="name" placeholder="Your name"></div>
+          <div class="field"><label for="cMail">Email</label><input id="cMail" name="email" type="email" required autocomplete="email" placeholder="you@example.com"></div>
+        </div>
+        <div class="field"><label for="cSub">Subject</label><input id="cSub" name="subject" type="text" required placeholder="Matchday info, sponsorship, media…"></div>
+        <div class="field"><label for="cMsg">Message</label><textarea id="cMsg" name="message" required placeholder="Write your message…"></textarea></div>
+        <button class="btn btn-gold" type="submit">Send Message <svg class="icon"><use href="#i-arrow"/></svg></button>
+      </form>
+
+      <aside data-reveal style="--i:1">
+        <ul class="info-list">
+          <li><svg class="icon"><use href="#i-mail"/></svg><div><b>Club Email</b><a data-info="email" href="#"></a></div></li>
+          <li><svg class="icon"><use href="#i-phone"/></svg><div><b>Phone</b><a data-info="phone" href="#"></a></div></li>
+        </ul>
+        <div class="visit-card">
+          <h4>Visit Us</h4>
+          <p data-info="address"></p>
+        </div>
+        <h4 class="sec-kicker" style="margin-bottom:.9rem">Follow the Philites</h4>
+        <div class="socials" id="socials"></div>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div>
+      <div class="foot-brand"><svg aria-hidden="true"><use href="#crest"/></svg><b>PHILITES FC</b></div>
+      <p>The official football club of Chuka University, competing in the Chuka Premier League (University Division) in the black-and-white stripes. Think first, strike fast — since 2016.</p>
+    </div>
+    <nav aria-label="Footer quick links">
+      <h4>Quick Links</h4>
+      <ul class="foot-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#fixtures">Fixtures</a></li>
+        <li><a href="#table">League Table</a></li>
+        <li><a href="#squad">Squad</a></li>
+        <li><a data-whatsapp href="#" target="_blank" rel="noopener">WhatsApp Group</a></li>
+        <li><a href="#join">Join the Philites</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h4>Contact Info</h4>
+      <ul class="foot-contact">
+        <li><svg class="icon"><use href="#i-mail"/></svg><a data-info="email" href="#"></a></li>
+        <li><svg class="icon"><use href="#i-phone"/></svg><a data-info="phone" href="#"></a></li>
+        <li><svg class="icon"><use href="#i-pin"/></svg><span data-info="address"></span></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Newsletter</h4>
+      <p style="margin-bottom:1rem;font-size:.88rem">Match reports, trials alerts and squad news — straight to your inbox.</p>
+      <form id="newsForm" data-toast="Subscribed. Welcome to the gold and blue family." data-success="You’re in. Check your inbox." novalidate>
+        <div class="news-form">
+          <label class="skip" for="nMail">Email for newsletter</label>
+          <input id="nMail" type="email" required placeholder="Your email address">
+          <button type="submit">Join</button>
+        </div>
+        <div class="field-check" style="margin-top:.8rem;margin-bottom:0">
+          <input type="checkbox" id="nConsent" required>
+          <label for="nConsent">I agree to receive club emails. Read the <button type="button" class="link-btn" data-article="privacy">privacy policy</button>.</label>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Philites FC · Chuka University. All rights reserved.</span>
+    <span><em>Powered by Chuka University Sports</em></span>
+    <span class="foot-legal">
+      <button data-article="sitemap">Sitemap</button>
+      <button data-article="accessibility">Accessibility</button>
+      <button data-article="privacy">Privacy Policy</button>
+    </span>
+  </div>
+</footer>
+
+<!-- ============================================================
+     MODALS / LIGHTBOX / TOASTS
+     ============================================================ -->
+<div class="modal" id="playerModal" role="dialog" aria-modal="true" aria-label="Player profile">
+  <div class="modal-backdrop"></div>
+  <div class="modal-panel">
+    <button class="modal-close" data-close aria-label="Close player profile"><svg class="icon"><use href="#i-close"/></svg></button>
+    <div id="playerPanel"></div>
+  </div>
+</div>
+
+<div class="modal" id="articleModal" role="dialog" aria-modal="true" aria-label="Article">
+  <div class="modal-backdrop"></div>
+  <div class="modal-panel">
+    <button class="modal-close" data-close aria-label="Close article"><svg class="icon"><use href="#i-close"/></svg></button>
+    <div class="am-body" id="articlePanel"></div>
+  </div>
+</div>
+
+<div class="modal" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="modal-backdrop"></div>
+  <button class="lb-close" data-close aria-label="Close image viewer"><svg class="icon"><use href="#i-close"/></svg></button>
+  <div class="modal-panel">
+    <div class="lb-frame">
+      <img id="lbImg" src="" alt="">
+      <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image"><svg class="icon"><use href="#i-chev-l"/></svg></button>
+      <button class="lb-nav lb-next" id="lbNext" aria-label="Next image"><svg class="icon"><use href="#i-chev-r"/></svg></button>
+      <div class="lb-bar">
+        <figcaption id="lbCap"></figcaption>
+        <span class="lb-count" id="lbCount"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   ★★★  EDITABLE SECTION — ALL CLUB CONTENT LIVES HERE  ★★★
+   ═══════════════════════════════════════════════════════════════ */
+const CONFIG = {
+
+  /* ── EDIT: paste your WhatsApp group invite link here ── */
+  whatsappGroup: 'https://chat.whatsapp.com/YOUR-GROUP-LINK',
+
+  /* ═══════════════════════════════════════════════════════════
+     ★ NEXT FIXTURE — EDIT THIS BLOCK BEFORE EVERY MATCH ★
+     Everything about the upcoming game lives here: opponent,
+     matchday number, date/time, venue, context line, gates and
+     entry. Our "Recent Form" chips are derived automatically from
+     CONFIG.results below — no opponent data needed, because the
+     league doesn't publish rivals' fixtures.
+     ═══════════════════════════════════════════════════════════ */
+  nextFixture: {
+    md: 15,                                            // EDIT: matchday number
+    opponent: 'Thunder Elites',                        // EDIT: opponent name
+    comp: 'Chuka Premier League · University Division',
+    iso: '2026-11-15T15:00:00+03:00',                  // EDIT: kick-off (EAT = UTC+3) — drives the countdown
+    dateLabel: 'Sunday, 15 November 2026',             // EDIT: readable date
+    timeLabel: '15:00 EAT',                            // EDIT: readable time
+    venue: 'Chuka University pitch · Pitch A',         // EDIT: venue line
+    context: 'Level on 20 points — the winner takes 7th place', // EDIT: one-line storyline
+    gates: '13:30',                                    // EDIT: gates-open time
+    entry: 'Free with student ID'                      // EDIT: entry line
+  },
+
+  /* ── EDIT: contact details (Contact section + footer) ── */
+  contact: {
+    email: 'info@philitesfc.ke',
+    phone: '+254 714 604 109',
+    phoneHref: '+254714604109',
+    address: 'Philites FC · Chuka University Sports Complex<br>Along Chuka–Embu Road, P.O. Box 109–60400<br>Chuka, Tharaka-Nithi County, Kenya'
+  },
+
+  /* ── EDIT: social page URLs (keep in sync with JSON-LD sameAs) ── */
+  socials: {
+    whatsapp:  'https://chat.whatsapp.com/YOUR-GROUP-LINK',
+    facebook:  'https://facebook.com/philitesfc',
+    instagram: 'https://instagram.com/philitesfc',
+    x:         'https://x.com/philitesfc',
+    tiktok:    'https://tiktok.com/@philitesfc'
+  },
+
+  /* ── EDIT: hero ticker headlines (rendered twice for the loop) ── */
+  ticker: [
+    'FT: <b>Philites 2–0 Youngsters</b> — Mbogo &amp; Kariuki on target',
+    '// Next: <b>Philites vs Thunder Elites</b> — level on 20 pts',
+    '// Cup: Philites 2–1 <b>Vipers</b> — Achieng strikes late',
+    '// Trials open for <b>2026/27</b> — join the WhatsApp group below',
+  ],
+
+  /* ── EDIT: league meta — table kicker + header label ── */
+  leagueMeta: { matchWeek: 16, season: '2026/27', division: 'University Division' },
+
+  /* ── EDIT: latest results (most recent first). venue: 'H' or 'A'.
+       The first 5 entries also feed the fixture's "Recent Form". ── */
+  results: [
+    {comp:'League · MD 14', date:'8 Nov 2026',  opp:'Youngsters', hs:2, as:0, res:'W', venue:'H', note:'Mbogo & Kariuki seal it'},
+    {comp:'League · MD 13', date:'1 Nov 2026',  opp:'Pokuca',     hs:1, as:3, res:'L', venue:'A', note:'Second-half collapse'},
+    {comp:'League · MD 12', date:'25 Oct 2026', opp:'Talanta',    hs:1, as:1, res:'D', venue:'H', note:'Late equaliser conceded'},
+    {comp:'Cup · QF',       date:'17 Oct 2026', opp:'Vipers',     hs:2, as:1, res:'W', venue:'H', note:'Achieng wins it 88\u2019'},
+    {comp:'League · MD 11', date:'11 Oct 2026', opp:'Rerina',     hs:1, as:0, res:'W', venue:'A', note:'Kariuki free kick'},
+  ],
+
+  /* ── EDIT: league standings (official table). hl:true = Philites. ── */
+  leagueTable: [
+    {team:'Pochon',         p:15, w:11, d:1, l:3,  gf:29, ga:28},
+    {team:'Vipers',         p:15, w:8,  d:2, l:5,  gf:24, ga:16},
+    {team:'Rerina',         p:14, w:8,  d:2, l:4,  gf:21, ga:17},
+    {team:'Pokuca',         p:16, w:7,  d:3, l:6,  gf:18, ga:18},
+    {team:'City Stars',     p:14, w:6,  d:4, l:4,  gf:16, ga:12},
+    {team:'Talanta',        p:15, w:6,  d:3, l:6,  gf:14, ga:16},
+    {team:'Thunder Elites', p:14, w:6,  d:2, l:6,  gf:19, ga:15},
+    {team:'Philites FC',    p:14, w:6,  d:2, l:6,  gf:17, ga:19, hl:true},
+    {team:'Ashland',        p:14, w:4,  d:6, l:4,  gf:35, ga:19},
+    {team:'Cuksa',          p:14, w:5,  d:1, l:8,  gf:18, ga:20},
+    {team:'Youngsters',     p:14, w:3,  d:3, l:8,  gf:11, ga:19},
+    {team:'Avengers',       p:13, w:1,  d:1, l:11, gf:4,  ga:27},
+  ],
+
+  /* ── EDIT: squad. ratings = [Pace, Shooting, Passing, Defending, Physical].
+       Height removed. Fields: num, name, pos (GK/DF/MF/FW), tag, yr, course,
+       from, bio, stats{apps,goals,assists,yc,rc}, ratings, captain?, top? ── */
+  players: [
+    {id:1, num:1, name:'B. Ochieng', pos:'GK', tag:'Sweeper Keeper', yr:'Year 3', course:'BSc Economics', from:'Kisumu',
+     bio:'Commanding shot-stopper from Kisumu Day High; his penalty save in the 2023 cup run is still replayed in the student end.',
+     stats:{apps:9,goals:0,assists:0,yc:0,rc:0}, ratings:[52,18,62,88,78]},
+    {id:12,num:12,name:'F. Mutinda', pos:'GK', tag:'Backup Keeper', yr:'Year 2', course:'BSc Nursing', from:'Machakos',
+     bio:'Deputised through the cup run without conceding from open play. Loud, brave, first out for warm-ups.',
+     stats:{apps:3,goals:0,assists:0,yc:0,rc:0}, ratings:[55,15,55,78,72]},
+    {id:29,num:29,name:'S. Gitonga', pos:'GK', tag:'Third Choice', yr:'Year 1', course:'BA Sociology', from:'Meru',
+     bio:'First-year prospect with shockingly quick feet for a keeper. Training ground favourite.',
+     stats:{apps:1,goals:0,assists:0,yc:0,rc:0}, ratings:[58,14,50,70,65]},
+
+    {id:2, num:2, name:'A. Kiptoo', pos:'DF', tag:'Right Back', yr:'Year 3', course:'BBIT', from:'Nandi',
+     bio:'Overlapping full-back from the Nandi conveyor belt — except he runs with the ball. A constant outlet down the right.',
+     stats:{apps:8,goals:0,assists:0,yc:1,rc:0}, ratings:[86,55,70,76,74]},
+    {id:4, num:4, name:'K. Mutua', pos:'DF', tag:'Centre Back · Captain', yr:'Year 4', course:'LLB', from:'Kitui', captain:true,
+     bio:'The law student who defends like a closing argument. Captain since his second year; recently cleared from an ankle scare.',
+     stats:{apps:9,goals:1,assists:0,yc:2,rc:0}, ratings:[62,40,66,90,86]},
+    {id:5, num:5, name:'J. Mwangi', pos:'DF', tag:'Centre Back', yr:'Year 3', course:'BSc Environmental Studies', from:'Nakuru',
+     bio:'Reads the game two passes ahead and rarely needs to dive into a tackle.',
+     stats:{apps:9,goals:0,assists:0,yc:1,rc:0}, ratings:[60,30,68,84,80]},
+    {id:3, num:3, name:'L. Wanjala', pos:'DF', tag:'Left Back', yr:'Year 2', course:'B.Ed Arts', from:'Bungoma',
+     bio:'Tenacious one-v-one defender from Kakamega High\u2019s famous production line.',
+     stats:{apps:7,goals:0,assists:0,yc:1,rc:0}, ratings:[82,45,64,78,70]},
+    {id:15,num:15,name:'V. Omondi', pos:'DF', tag:'Centre Back', yr:'Year 3', course:'BSc Computer Science', from:'Siaya',
+     bio:'Threat from every corner; calm on the ball under any press.',
+     stats:{apps:8,goals:0,assists:0,yc:2,rc:0}, ratings:[58,42,70,82,84]},
+    {id:21,num:21,name:'C. Bett', pos:'DF', tag:'Utility Defender', yr:'Year 1', course:'BSc Food Science', from:'Bomet',
+     bio:'First-year who can play all four positions across the back line. The coaches call him \u201Cthe spare key\u201D.',
+     stats:{apps:4,goals:0,assists:0,yc:0,rc:0}, ratings:[75,40,62,74,72]},
+
+    {id:6, num:6, name:'P. Barasa', pos:'MF', tag:'Defensive Mid', yr:'Year 4', course:'BSc Economics', from:'Bungoma',
+     bio:'The metronome: breaks up play, resets the attack, first name on the teamsheet.',
+     stats:{apps:9,goals:0,assists:0,yc:3,rc:0}, ratings:[64,50,80,82,78]},
+    {id:8, num:8, name:'T. Otieno', pos:'MF', tag:'Central Mid · Vice-Captain', yr:'Year 3', course:'BSc Statistics', from:'Kisumu',
+     bio:'Biggest engine on campus — box to box for ninety minutes, then jogs a cooldown lap.',
+     stats:{apps:9,goals:1,assists:1,yc:1,rc:0}, ratings:[74,68,82,70,84]},
+    {id:10,num:10,name:'G. Kariuki', pos:'MF', tag:'Attacking Mid · Top Scorer', yr:'Year 2', course:'BSc Computer Science', from:'Nyeri', top:true,
+     bio:'The number 10 every campus keeper has nightmares about: six league goals, two from free kicks.',
+     stats:{apps:9,goals:6,assists:2,yc:0,rc:0}, ratings:[82,85,87,55,72]},
+    {id:7, num:7, name:'I. Maina', pos:'MF', tag:'Right Mid', yr:'Year 3', course:'BSc Agribusiness', from:'Nyandarua',
+     bio:'Direct, quick and two-footed down the right. Leads the squad in completed crosses.',
+     stats:{apps:8,goals:0,assists:2,yc:1,rc:0}, ratings:[85,60,72,58,76]},
+    {id:14,num:14,name:'M. Kilonzo', pos:'MF', tag:'Central Mid', yr:'Year 2', course:'BSc Mathematics', from:'Machakos',
+     bio:'Passing angles calculated like a proof. Never lets the tempo drop.',
+     stats:{apps:6,goals:0,assists:0,yc:0,rc:0}, ratings:[68,58,84,64,70]},
+    {id:18,num:18,name:'W. Mwendwa', pos:'MF', tag:'Left Mid', yr:'Year 3', course:'BA Sociology', from:'Makueni',
+     bio:'Cuts inside onto his right foot from the left — everyone knows it, nobody has stopped it.',
+     stats:{apps:7,goals:0,assists:1,yc:1,rc:0}, ratings:[80,62,74,56,71]},
+
+    {id:9, num:9, name:'R. Mbogo', pos:'FW', tag:'Striker', yr:'Year 3', course:'BSc Agribusiness', from:'Kirinyaga',
+     bio:'A proper number 9: back to goal, both feet, loves a brace.',
+     stats:{apps:9,goals:4,assists:0,yc:1,rc:0}, ratings:[78,82,64,38,86]},
+    {id:11,num:11,name:'N. Achieng', pos:'FW', tag:'Left Wing', yr:'Year 2', course:'BA Sociology', from:'Kisumu',
+     bio:'Drives at defenders until something happens. Scored the 88th-minute cup winner against Vipers.',
+     stats:{apps:8,goals:3,assists:4,yc:0,rc:0}, ratings:[92,74,76,40,68]},
+    {id:19,num:19,name:'H. Chirchir', pos:'FW', tag:'Right Wing', yr:'Year 4', course:'B.Ed Science', from:'Kericho',
+     bio:'Final-year winger with a habit of scoring in games the Philites go on to win.',
+     stats:{apps:9,goals:2,assists:0,yc:1,rc:0}, ratings:[84,72,68,42,70]},
+    {id:23,num:23,name:'J. Wafula', pos:'FW', tag:'Striker', yr:'Year 3', course:'BSc Biochemistry', from:'Bungoma',
+     bio:'Whatever he lacks in minutes he makes up in chaos — defenders never get a quiet afternoon.',
+     stats:{apps:7,goals:0,assists:0,yc:2,rc:0}, ratings:[80,70,58,34,80]},
+    {id:27,num:27,name:'K. Njue', pos:'FW', tag:'Centre Forward', yr:'Year 1', course:'BSc Computer Science', from:'Embu',
+     bio:'First-year from Embu with an eye for the near post; scored nine for the fresher\u2019s team.',
+     stats:{apps:5,goals:0,assists:0,yc:0,rc:0}, ratings:[76,68,60,32,66]},
+  ],
+
+  /* ── EDIT: news articles. cls: 'cat-gold' (report) or 'cat-blue' (announcement) ── */
+  news: [
+    {id:'n1', cat:'Match Report', cls:'cat-gold', date:'8 Nov 2026', seed:'ph-n1', ar:'r-16x10',
+     title:'Philites back to winning ways against Youngsters',
+     excerpt:'Mbogo opened the scoring inside ten minutes and Kariuki added a second as the Philosophers climbed to 20 points.',
+     body:['The response after the Pokuca defeat was immediate. R. Mbogo headed in from I. Maina\u2019s cross inside ten minutes and G. Kariuki added a second midway through the second half, sliding in at the back post.',
+           'The clean sheet — only the fourth this season — was as satisfying as the goals, with B. Ochieng largely a spectator behind a back line that kept Youngsters at arm\u2019s length all afternoon.']},
+    {id:'n2', cat:'Match Report', cls:'cat-gold', date:'1 Nov 2026', seed:'ph-n2', ar:'r-1x1',
+     title:'Three second-half goals sink Philites at Pokuca',
+     excerpt:'Level at the break, the Philosophers conceded three after the hour as Pokuca ran away with it.',
+     body:['Level at the break thanks to N. Achieng\u2019s equaliser, the Philites fell apart in a fifteen-minute spell after the hour, conceding three times as Pokuca punished loose passes in midfield.',
+           'Head coach Stephen Odhiambo called it \u201Cthe angriest team talk of the season\u201D — the response against Youngsters a week later suggests the message landed.']},
+    {id:'n3', cat:'Announcement', cls:'cat-blue', date:'26 Oct 2026', seed:'ph-n3', ar:'r-3x4',
+     title:'Open trials confirmed — join the squad for the 2026/27 run-in',
+     excerpt:'Trials at Pitch A on 22 November. Register on this site or join the official WhatsApp group for updates.',
+     body:['Open trials for the 2026/27 Chuka Premier League season take place on Saturday 22 November at the Chuka University pitch, starting at 9:00 AM sharp.',
+           'All enrolled students are eligible. Register through the form on this page, or join the official WhatsApp group (linked throughout this site) for training updates, trial reminders and squad announcements.']},
+    {id:'n4', cat:'Match Report', cls:'cat-gold', date:'17 Oct 2026', seed:'ph-n4', ar:'r-16x10',
+     title:'Cup shock: second-placed Vipers edged out',
+     excerpt:'A quarter-final against the league\u2019s form side looked a step too far — the Philites had other ideas.',
+     body:['A cup quarter-final against second-placed Vipers looked like a step too far on paper. The Philites defended like it was a final, absorbed sustained pressure, and won it with eight minutes left.',
+           'N. Achieng collected a half-clearance 25 yards out, cut inside and buried the winner into the bottom corner. Semi-final opponents will be confirmed after Matchday 16.']},
+  ],
+
+  /* ── EDIT: video highlights. featured:true = the big card.
+       iframe: replace VIDEO_ID with a real YouTube ID. ── */
+  highlights: [
+    {id:'h1', featured:true, title:'Highlights: Philites 2–0 Youngsters', date:'8 Nov 2026', duration:'4:32', seed:'ph-hl-1',
+     iframe:'https://www.youtube-nocookie.com/embed/VIDEO_ID',
+     desc:'All the goals and the big saves from the 2–0 win over Youngsters — Mbogo\u2019s early header and Kariuki\u2019s back-post finish.'},
+    {id:'h2', title:'Achieng\u2019s cup winner vs Vipers', date:'17 Oct 2026', duration:'1:08', seed:'ph-hl-2',
+     iframe:'https://www.youtube-nocookie.com/embed/VIDEO_ID',
+     desc:'88 minutes on the clock, 25 yards from goal — N. Achieng cuts inside and buries the winner into the bottom corner.'},
+    {id:'h3', title:'Kariuki free kick stuns Rerina', date:'11 Oct 2026', duration:'0:54', seed:'ph-hl-3',
+     iframe:'https://www.youtube-nocookie.com/embed/VIDEO_ID',
+     desc:'G. Kariuki\u2019s dipping 25-yard free kick that decided the away tie against Rerina.'},
+    {id:'h4', title:'Ochieng\u2019s saves vs Pokuca', date:'1 Nov 2026', duration:'2:15', seed:'ph-hl-4',
+     iframe:'https://www.youtube-nocookie.com/embed/VIDEO_ID',
+     desc:'B. Ochieng\u2019s best saves from a tough afternoon at Pokuca — a masterclass in keeping the score respectable.'},
+    {id:'h5', title:'Mbogo\u2019s opening header', date:'8 Nov 2026', duration:'0:47', seed:'ph-hl-5',
+     iframe:'https://www.youtube-nocookie.com/embed/VIDEO_ID',
+     desc:'I. Maina\u2019s cross, R. Mbogo\u2019s run, and a header that set the tone against Youngsters.'},
+  ],
+
+  /* ── EDIT: ★ venue — kept to local-university level: name, address,
+       directions, facilities and the map pin. Capacity/surface removed.
+       mapEmbed: to pinpoint the EXACT field, replace the q= value with
+       GPS coordinates when you have them, e.g.  q=-0.3349,37.6421 ── */
+  venue: {
+    name: 'Chuka University Pitch · Pitch A',
+    address: 'Chuka University Sports Complex, along Chuka–Embu Road, Chuka, Tharaka-Nithi County',
+    directions: '15 minutes\u2019 walk from the main gate — follow the signs past the library. Parking at Complex Lot B.',
+    mapEmbed: 'https://www.google.com/maps?q=Chuka+University,+Chuka,+Kenya&z=16&output=embed',
+    facilities: ['Changing Rooms', 'Floodlights', 'Seating']
+  },
+
+  /* ── EDIT: fan zone cards. cta.action: 'join' | 'whatsapp' | 'contact' ── */
+  fanZone: [
+    {icon:'i-heart', title:'Join the Supporters\u2019 Club',
+     copy:'A season card, priority away-travel seats and a vote in the end-of-season awards. KSh 200 for the season — every shilling funds the away trips.',
+     cta:{label:'Become a Member', action:'join'}},
+    {icon:'i-users', title:'Volunteer on Matchday',
+     copy:'Stewards, ball crew, announcer team and social media runners. Matchday credit, free entry and first pick of away fixtures.',
+     cta:{label:'Join the Volunteer Crew', action:'whatsapp'}},
+    {icon:'i-mega', title:'Follow the Philites',
+     copy:'Line-ups, goals and behind-the-scenes chaos across WhatsApp, Facebook, Instagram, X and TikTok. The drum beats loudest online.',
+     cta:{label:'Find Our Socials', action:'contact'}},
+  ],
+
+  /* ── EDIT: club history timeline (year + event) ── */
+  timeline: [
+    {year:'2016', event:'Founded on the dust pitches behind Hall C by the evening philosophy discussion group.'},
+    {year:'2017', event:'Entered the Chuka Premier League (University Division) — finished a respectable 7th.'},
+    {year:'2019', event:'First silverware: the inter-faculty championship, won without losing a game.'},
+    {year:'2021', event:'University Division champions — the first league title in club history.'},
+    {year:'2023', event:'Chuka Super Cup winners; the student end gets its own drum crew.'},
+    {year:'2024', event:'Best league finish to date — 4th in the Chuka Premier League.'},
+    {year:'2026', event:'The black-and-white stripes adopted as home colours; new base at the renovated Sports Complex.'},
+  ],
+
+  /* ── EDIT: standalone articles (footer legal pages) ── */
+  articles: {
+    privacy:{
+      cat:'Club', cls:'cat-blue', date:'Last updated Oct 2026',
+      title:'Privacy Policy',
+      body:['Philites FC collects only the information you submit through this site\u2019s forms (name, email, phone, position) for the sole purpose of club administration — trials registration, enquiries and the newsletter.',
+            'We never sell or share your data with third parties, and you can request deletion at any time by writing to info@philitesfc.ke.',
+            'This site uses no tracking cookies. Questions about this policy can be raised through the contact section or at any home fixture.']},
+    sitemap:{
+      cat:'Club', cls:'cat-blue', date:'2026/27 Season',
+      title:'Sitemap',
+      list:[
+        '<a href="#home">Home</a> — crest, countdown, latest headlines',
+        '<a href="#results">Latest Results</a> — the last five matches',
+        '<a href="#fixtures">Next Fixture</a> — matchday spotlight',
+        '<a href="#table">League Table</a> — Chuka Premier League standings',
+        '<a href="#squad">Squad</a> — first team by position',
+        '<a href="#news">News</a> — reports and announcements',
+        '<a href="#club">Club</a> — history, honours, timeline, staff',
+        '<a href="#gallery">Gallery</a> — matchday and training photos',
+        '<a href="#highlights">Highlights</a> — video match centre',
+        '<a href="#venue">Venue</a> — ground info, facilities, directions',
+        '<a href="#fans">Fan Zone</a> — membership and volunteering',
+        '<a href="#join">Join</a> — trials registration',
+        '<a href="#contact">Contact</a> — forms, socials, address',
+      ]},
+    accessibility:{
+      cat:'Club', cls:'cat-blue', date:'Last updated Oct 2026',
+      title:'Accessibility Statement',
+      body:['This site aims to meet WCAG 2.1 Level AA. Colour contrast is checked in both dark and light themes, meaningful images carry alternative text, and all form fields use explicit labels.',
+            'The site is fully keyboard navigable: the menu, tabs, player cards, gallery, lightbox and every dialog can be reached and operated with Tab, Enter, the arrow keys and Escape. Focus is trapped inside open dialogs and returned to the control that opened them.',
+            'Animations — scroll reveals, the ticker, the countdown separators — are disabled automatically when your system requests reduced motion (prefers-reduced-motion).',
+            'If you hit a barrier anywhere on this site, tell us via the contact section and we will fix it.']},
+  },
+
+  /* ── EDIT: gallery images. cat must match a filter tab ── */
+  gallery: [
+    {seed:'ph-md-1', cat:'Match Day',   cap:'The home end in full voice under the lights', w:800, h:1000},
+    {seed:'ph-tr-1', cat:'Training',    cap:'Tuesday pressing drills at the Sports Complex', w:800, h:600},
+    {seed:'ph-ev-1', cat:'Team Events', cap:'Squad photo day in the new kit', w:800, h:1100},
+    {seed:'ph-md-2', cat:'Match Day',   cap:'Kick-off under the Chuka floodlights', w:800, h:560},
+    {seed:'ph-tr-2', cat:'Training',    cap:'Goalkeeper session with coach Yego', w:800, h:900},
+    {seed:'ph-md-3', cat:'Match Day',   cap:'Away support at the Pokuca tie', w:800, h:640},
+  ],
+};
+/* ═══════════════════ END EDITABLE SECTION ═══════════════════ */
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+const $  = (s, c=document) => c.querySelector(s);
+const $$ = (s, c=document) => [...c.querySelectorAll(s)];
+const pic = (seed,w,h,gray) => `https://picsum.photos/seed/${seed}/${w}/${h}.jpg${gray?'?grayscale':''}`;
+
+function toast(msg){
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.innerHTML = `<svg class="icon"><use href="#i-check"/></svg><span>${msg}</span>`;
+  $('#toasts').appendChild(t);
+  requestAnimationFrame(() => t.classList.add('show'));
+  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 350); }, 4200);
+}
+
+/* Modal shell with focus trap + focus return */
+let lastFocus = null;
+function openModal(m){
+  lastFocus = document.activeElement;
+  m.classList.add('open');
+  document.body.classList.add('locked');
+  (m.querySelector('[data-close]') || m).focus();
+}
+function closeModal(m){
+  m.classList.remove('open');
+  if(!$('.modal.open')) document.body.classList.remove('locked');
+  if(lastFocus?.focus) lastFocus.focus();
+}
+ $$('.modal').forEach(m => {
+  m.addEventListener('click', e => {
+    if(e.target.classList.contains('modal-backdrop') || e.target.closest('[data-close]')) closeModal(m);
+  });
+});
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    const m = $('.modal.open');
+    if(m) closeModal(m);
+    if(menuEl.classList.contains('open')) toggleMenu(false);
+  }
+  if($('#lightbox').classList.contains('open')){
+    if(e.key === 'ArrowRight') lbStep(1);
+    if(e.key === 'ArrowLeft')  lbStep(-1);
+  }
+  if(e.key === 'Tab' && $('.modal.open')){
+    const f = $$('.modal.open button, .modal.open a, .modal.open input, .modal.open select, .modal.open textarea, .modal.open [tabindex="0"]').filter(el => el.offsetParent !== null);
+    if(!f.length) return;
+    const first = f[0], last = f[f.length-1];
+    if(e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
+    else if(!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
+  }
+  const art = e.target.closest?.('[role="button"][data-article]');
+  if(art && (e.key === 'Enter' || e.key === ' ')){ e.preventDefault(); openArticle(art.dataset.article); }
+});
+
+/* ============================================================
+   LIGHT / DARK THEME TOGGLE (persisted)
+   ============================================================ */
+const themeBtn = $('#themeBtn');
+function applyTheme(t){
+  document.documentElement.dataset.theme = t;
+  themeBtn.setAttribute('aria-pressed', t === 'light');
+  themeBtn.setAttribute('aria-label', t === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+  themeBtn.querySelector('use').setAttribute('href', t === 'light' ? '#i-moon' : '#i-sun');
+  try{ localStorage.setItem('philites-theme', t); }catch(err){}
+}
+applyTheme(document.documentElement.dataset.theme || 'dark');
+themeBtn.addEventListener('click', () =>
+  applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light'));
+
+/* ============================================================
+   COUNTDOWN — from CONFIG.nextFixture.iso (15 Nov 2026, 15:00 EAT)
+   ============================================================ */
+let cdTimer;
+const KICKOFF = new Date(CONFIG.nextFixture.iso);
+const pad = n => String(n).padStart(2,'0');
+function tickCountdown(){
+  const diff = KICKOFF - Date.now();
+  if(diff <= 0){
+    $('.count').innerHTML = `<p style="font-family:var(--f-disp);font-size:clamp(1.6rem,4vw,2.4rem);color:var(--gold);letter-spacing:.06em">MATCH DAY — KICK-OFF ${CONFIG.nextFixture.timeLabel}</p>`;
+    return clearInterval(cdTimer);
+  }
+  const s = Math.floor(diff/1000);
+  $('#cdD').textContent = pad(Math.floor(s/86400));
+  $('#cdH').textContent = pad(Math.floor(s/3600)%24);
+  $('#cdM').textContent = pad(Math.floor(s/60)%60);
+  $('#cdS').textContent = pad(s%60);
+}
+tickCountdown();
+cdTimer = setInterval(tickCountdown, 1000);
+
+/* ============================================================
+   NAV — scroll state, active link, mobile menu
+   ============================================================ */
+const nav = $('#navbar'), menuEl = $('#mobileMenu'), menuBtn = $('#menuBtn');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 24), {passive:true});
+nav.classList.toggle('scrolled', scrollY > 24);
+
+/* toggleMenu: guarded — never a redundant toggle, never strips
+   body.locked while a modal is still open */
+function toggleMenu(force){
+  const isOpen = menuEl.classList.contains('open');
+  const open = force === undefined ? !isOpen : force;
+  if(open === isOpen) return;
+  menuEl.classList.toggle('open', open);
+  menuBtn.setAttribute('aria-expanded', open);
+  menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  menuBtn.querySelector('use').setAttribute('href', open ? '#i-close' : '#i-menu');
+  if(open) document.body.classList.add('locked');
+  else if(!$('.modal.open')) document.body.classList.remove('locked');
+}
+menuBtn.addEventListener('click', () => toggleMenu());
+ $$('#mobileMenu a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+const sectionIO = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(!en.isIntersecting) return;
+    $$('#navLinks a').forEach(a =>
+      a.toggleAttribute('aria-current', a.getAttribute('href') === '#' + en.target.id));
+  });
+}, {rootMargin:'-40% 0px -55% 0px'});
+['home','fixtures','table','squad','news','club','highlights','venue','fans','contact'].forEach(id => {
+  const el = document.getElementById(id); if(el) sectionIO.observe(el);
+});
+
+/* ============================================================
+   SCROLL REVEALS
+   ============================================================ */
+const revealIO = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(en.isIntersecting){ en.target.classList.add('in-view'); revealIO.unobserve(en.target); }
+  });
+}, {threshold:.12, rootMargin:'0px 0px -40px'});
+ $$('[data-reveal]').forEach(el => revealIO.observe(el));
+const observeReveals = root => $$('[data-reveal]', root).forEach(el => revealIO.observe(el));
+
+/* ============================================================
+   CONFIG WIRING — hero labels, ticker, WhatsApp, contacts,
+   socials, league meta
+   ============================================================ */
+ $('#mdNote').innerHTML = `<span class="pulse" aria-hidden="true"></span>Next Match · Matchday ${CONFIG.nextFixture.md} · ${CONFIG.nextFixture.comp}`;
+ $('#kickLabel').textContent = `Kick-off vs ${CONFIG.nextFixture.opponent} — ${CONFIG.nextFixture.dateLabel} · ${CONFIG.nextFixture.timeLabel}`;
+
+(function renderTicker(){
+  const items = CONFIG.ticker.map(t => `<span>${t}</span>`).join('');
+  $('#tickerTrack').innerHTML =
+    `<div class="ticker-group">${items}</div><div class="ticker-group" aria-hidden="true">${items}</div>`;
+})();
+
+ $('#leagueMW').textContent = `Match Week ${CONFIG.leagueMeta.matchWeek}`;
+ $('#leagueKicker').textContent = `Chuka Premier League · ${CONFIG.leagueMeta.division} · ${CONFIG.leagueMeta.season}`;
+
+ $$('[data-whatsapp]').forEach(a => { a.href = CONFIG.whatsappGroup; });
+ $$('[data-info="email"]').forEach(a => { a.textContent = CONFIG.contact.email; a.href = 'mailto:' + CONFIG.contact.email; });
+ $$('[data-info="phone"]').forEach(a => { a.textContent = CONFIG.contact.phone; a.href = 'tel:' + CONFIG.contact.phoneHref; });
+ $$('[data-info="address"]').forEach(el => { el.innerHTML = CONFIG.contact.address; });
+
+const SOCIAL_ICONS = {
+  whatsapp:['#i-wa',''], facebook:['#i-fb','icon--fill'],
+  instagram:['#i-ig',''], x:['#i-x','icon--fill'], tiktok:['#i-tt','icon--fill']
+};
+ $('#socials').innerHTML = Object.entries(CONFIG.socials).map(([k,url]) => {
+  const [icon, cls] = SOCIAL_ICONS[k] || ['#i-pin',''];
+  return `<a href="${url}" target="_blank" rel="noopener" aria-label="Philites FC on ${k}"><svg class="icon ${cls}"><use href="${icon}"/></svg></a>`;
+}).join('');
+
+/* ============================================================
+   RENDER — results strip
+   ============================================================ */
+ $('#resStrip').innerHTML = CONFIG.results.map((r,i) => `
+  <article class="result-card" data-reveal style="--i:${i}">
+    <div class="res-top"><span class="res-comp">${r.comp}</span><span class="res-badge ${r.res.toLowerCase()}">${{W:'WIN',D:'DRAW',L:'LOSS'}[r.res]}</span></div>
+    <div class="res-row">
+      <span class="res-team home">Philites</span>
+      <span class="res-score"><b>${r.hs}</b> : ${r.as}</span>
+      <span class="res-team">${r.opp}</span>
+    </div>
+    <div class="res-foot"><span>${r.date} · ${r.venue === 'H' ? 'Home' : 'Away'}</span><span>${r.note}</span></div>
+  </article>`).join('');
+observeReveals($('#resStrip'));
+
+ $('#resPrev').addEventListener('click', () => $('#resStrip').scrollBy({left:-340, behavior:'smooth'}));
+ $('#resNext').addEventListener('click', () => $('#resStrip').scrollBy({left: 340, behavior:'smooth'}));
+
+/* ============================================================
+   RENDER — fixture spotlight (single column, OUR data only).
+   Recent form is derived from the first 5 CONFIG.results —
+   no fabricated opponent stats.
+   ============================================================ */
+(function renderFixture(){
+  const fx = CONFIG.nextFixture;
+  const form = CONFIG.results.slice(0,5).map(r => r.res);
+  const dot = d => `<span class="dot ${d.toLowerCase()}">${d}</span>`;
+
+  $('#fxLeft').innerHTML = `
+    <span class="fx-md" aria-hidden="true">MD${fx.md}</span>
+    <p class="fx-kicker">${fx.comp} · Matchday ${fx.md}</p>
+    <h3 class="fx-teams">PHILITES<span class="fx-vs">VS</span>${fx.opponent.toUpperCase()}</h3>
+    <ul class="fx-meta">
+      <li><svg class="icon"><use href="#i-cal"/></svg>${fx.dateLabel} · ${fx.timeLabel}</li>
+      <li><svg class="icon"><use href="#i-pin"/></svg>${fx.venue}</li>
+      <li><svg class="icon"><use href="#i-shield"/></svg>${fx.context}</li>
+    </ul>
+    <div class="md-info" aria-label="Matchday information">
+      <span class="md-info-label">Matchday Info</span>
+      <span class="md-chip">Gates open <b>${fx.gates}</b></span>
+      <span class="md-chip">Kick-off <b>${fx.timeLabel}</b></span>
+      <span class="md-chip">Entry <b>${fx.entry}</b></span>
+    </div>
+    <div class="form-row" aria-label="Our recent form">
+      <span class="form-label">Recent Form</span>${form.map(dot).join('')}
+    </div>
+    <p class="fx-note">The league posts opponents\u2019 fixtures and results late — <a class="link-btn" href="${CONFIG.whatsappGroup}" target="_blank" rel="noopener">join the WhatsApp group</a> and we forward everything the moment it drops.</p>`;
+})();
+
+/* ============================================================
+   RENDER — league table with sorting
+   ============================================================ */
+CONFIG.leagueTable.slice()
+  .sort((a,b) => ((b.w*3+b.d) - (a.w*3+a.d)) || ((b.gf-b.ga) - (a.gf-a.ga)))
+  .forEach((t,i) => t.pos = i+1);
+
+let sortKey = 'pts', sortDir = -1;
+function renderTable(){
+  const key = t => sortKey === 'gd' ? t.gf - t.ga : t[sortKey];
+  const rows = CONFIG.leagueTable.slice().sort((a,b) => (key(a)-key(b)) * sortDir);
+  $('#leagueBody').innerHTML = rows.map(t => {
+    const gd = t.gf - t.ga;
+    const zone = t.pos <= 2 ? 'zone-top' : t.pos >= 11 ? 'zone-bot' : '';
+    return `<tr class="${t.hl ? 'hl' : ''} ${zone}">
+      <td class="pos">${String(t.pos).padStart(2,'0')}</td>
+      <td class="team-name">${t.team}${t.hl ? ' ◂' : ''}</td>
+      <td>${t.p}</td><td>${t.w}</td><td>${t.d}</td><td>${t.l}</td>
+      <td>${t.gf}</td><td>${t.ga}</td><td>${gd>0?'+':''}${gd}</td>
+      <td class="pts">${t.w*3+t.d}</td>
+    </tr>`;
+  }).join('');
+  $$('#leagueTable th').forEach(th => th.removeAttribute('aria-sort'));
+  const th = $(`#leagueTable th button[data-key="${sortKey}"]`)?.closest('th');
+  if(th) th.setAttribute('aria-sort', sortDir === -1 ? 'descending' : 'ascending');
+}
+ $$('#leagueTable th button').forEach(btn => btn.addEventListener('click', () => {
+  const k = btn.dataset.key;
+  if(k === sortKey) sortDir *= -1; else { sortKey = k; sortDir = -1; }
+  renderTable();
+}));
+renderTable();
+
+/* ============================================================
+   RENDER — squad (tabs + cards)
+   ============================================================ */
+const POS_TABS = [['All','ALL'],['GK','GOALKEEPERS'],['DF','DEFENDERS'],['MF','MIDFIELDERS'],['FW','FORWARDS']];
+ $('#squadTabs').innerHTML = POS_TABS.map(([k,label]) => {
+  const n = k === 'All' ? CONFIG.players.length : CONFIG.players.filter(p => p.pos === k).length;
+  return `<button class="tab" role="tab" aria-selected="${k==='All'}" data-pos="${k}">${label}<em>${n}</em></button>`;
+}).join('');
+
+function renderSquad(pos = 'All'){
+  const list = pos === 'All' ? CONFIG.players : CONFIG.players.filter(p => p.pos === pos);
+  $('#squadGrid').innerHTML = list.map((p,i) => `
+    <article class="player" data-id="${p.id}" tabindex="0" role="button"
+             aria-label="View profile of ${p.name}, ${p.tag}" data-reveal style="--i:${i%8}">
+      <div class="player-media">
+        <img src="${pic('ph-p'+p.id, 360, 460, true)}" alt="Portrait of ${p.name}" loading="lazy" decoding="async">
+        ${p.captain ? '<span class="chip">CAPTAIN</span>' : ''}
+        ${p.top ? '<span class="chip chip-top">TOP SCORER</span>' : ''}
+        <span class="player-num" aria-hidden="true">${p.num}</span>
+        <div class="player-overlay">
+          <span class="ov-txt">View Profile</span>
+          <svg class="icon"><use href="#i-arrow"/></svg>
+        </div>
+      </div>
+      <div class="player-meta">
+        <div><h3>${p.name}</h3><p>${p.tag}</p></div>
+        <span class="badge badge-${p.pos.toLowerCase()}">${p.pos}</span>
+      </div>
+    </article>`).join('');
+  observeReveals($('#squadGrid'));
+}
+renderSquad();
+
+const tabButtons = $$('#squadTabs .tab');
+tabButtons.forEach(btn => btn.addEventListener('click', () => activateTab(btn)));
+ $('#squadTabs').addEventListener('keydown', e => {
+  if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key)) return;
+  e.preventDefault();
+  const idx = tabButtons.findIndex(b => b.getAttribute('aria-selected') === 'true');
+  let next = e.key === 'ArrowRight' ? idx+1 : e.key === 'ArrowLeft' ? idx-1 : e.key === 'Home' ? 0 : tabButtons.length-1;
+  next = (next + tabButtons.length) % tabButtons.length;
+  tabButtons[next].focus(); activateTab(tabButtons[next]);
+});
+function activateTab(btn){
+  tabButtons.forEach(b => b.setAttribute('aria-selected', b === btn));
+  renderSquad(btn.dataset.pos);
+}
+
+/* ============================================================
+   PLAYER PROFILE MODAL — bio, stats, SVG radar chart.
+   Radar colours use theme tokens via style attributes (var() is
+   not valid inside SVG presentation attributes) — correct in
+   both themes. Height field removed.
+   ============================================================ */
+function radarSVG(values){
+  const N = 5, cx = 130, cy = 118, R = 86;
+  const labels = ['PAC','SHO','PAS','DEF','PHY'];
+  const pt = (i,r) => {
+    const a = -Math.PI/2 + i*2*Math.PI/N;
+    return [+(cx + r*Math.cos(a)).toFixed(1), +(cy + r*Math.sin(a)).toFixed(1)];
+  };
+  const ring = r => Array.from({length:N},(_,i)=>pt(i,r).join(',')).join(' ');
+  const poly = v => Array.from({length:N},(_,i)=>pt(i, R*v[i]/100).join(',')).join(' ');
+  const labelPts = Array.from({length:N},(_,i)=>pt(i, R+18));
+  const anchor = i => (Math.abs(labelPts[i][0]-cx) < 12 ? 'middle' : labelPts[i][0] > cx ? 'start' : 'end');
+  return `<svg viewBox="0 0 260 240" width="100%" role="img" aria-label="Performance radar chart">
+    ${[R*.33,R*.66,R].map(r => `<polygon points="${ring(r)}" style="fill:none;stroke:var(--line)"/>`).join('')}
+    ${Array.from({length:N},(_,i)=>{const [x,y]=pt(i,R);return `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" style="stroke:var(--line)"/>`}).join('')}
+    <polygon points="${poly(values)}" style="fill:var(--gold-soft);stroke:var(--gold)" stroke-width="2"/>
+    ${values.map((v,i)=>{const [x,y]=pt(i,R*v/100);return `<circle cx="${x}" cy="${y}" r="3" style="fill:var(--gold)"/>`}).join('')}
+    ${labelPts.map((p,i)=>`<text x="${p[0]}" y="${p[1]+4}" text-anchor="${anchor(i)}" font-family="Oswald" font-size="11" letter-spacing="2" style="fill:var(--faint)">${labels[i]}</text>`).join('')}
+  </svg>`;
+}
+
+function openPlayer(id){
+  const p = CONFIG.players.find(x => x.id === +id);
+  if(!p) return;
+  const s = p.stats;
+  $('#playerPanel').innerHTML = `
+    <div class="pm-head">
+      <span class="pm-num" aria-hidden="true">${String(p.num).padStart(2,'0')}</span>
+      <h2>${p.name}</h2><span class="badge badge-${p.pos.toLowerCase()}">${p.pos} · ${p.tag}</span>
+    </div>
+    <div class="pm-body">
+      <div>
+        <img class="pm-photo" src="${pic('ph-p'+p.id, 560, 700, true)}" alt="Portrait of ${p.name}" loading="lazy" decoding="async">
+        <dl class="pm-facts" style="margin-top:1rem;margin-bottom:0">
+          <div class="pm-fact"><dt>Year</dt><dd>${p.yr}</dd></div>
+          <div class="pm-fact"><dt>Course</dt><dd>${p.course}</dd></div>
+          <div class="pm-fact"><dt>From</dt><dd>${p.from}, Kenya</dd></div>
+        </dl>
+      </div>
+      <div>
+        <div class="pm-block"><h4>Profile</h4><p class="pm-bio">${p.bio}</p></div>
+        <div class="pm-block"><h4>Season Stats · 2026/27</h4>
+          <div class="pm-stats">
+            <div class="pm-stat"><b>${s.apps}</b><span>Apps</span></div>
+            <div class="pm-stat"><b>${s.goals}</b><span>Goals</span></div>
+            <div class="pm-stat"><b>${s.assists}</b><span>Assists</span></div>
+            <div class="pm-stat"><b>${s.yc}</b><span>YC</span></div>
+            <div class="pm-stat"><b>${s.rc}</b><span>RC</span></div>
+          </div>
+        </div>
+        <div class="pm-block pm-chart"><h4>Performance Metrics</h4>${radarSVG(p.ratings)}</div>
+      </div>
+    </div>`;
+  openModal($('#playerModal'));
+}
+
+ $('#squadGrid').addEventListener('click', e => {
+  const card = e.target.closest('.player');
+  if(card) openPlayer(card.dataset.id);
+});
+ $('#squadGrid').addEventListener('keydown', e => {
+  const card = e.target.closest('.player');
+  if(card && (e.key === 'Enter' || e.key === ' ')){ e.preventDefault(); openPlayer(card.dataset.id); }
+});
+
+/* ============================================================
+   RENDER — news masonry
+   ============================================================ */
+ $('#newsGrid').innerHTML = CONFIG.news.map((n,i) => `
+  <article class="news-card" data-reveal style="--i:${i%3}">
+    <div class="news-thumb ${n.ar}"><img src="${pic(n.seed, 800, 600)}" alt="${n.title}" loading="lazy" decoding="async"></div>
+    <div class="news-body">
+      <div class="news-top"><span class="cat ${n.cls}">${n.cat}</span><time>${n.date}</time></div>
+      <h3>${n.title}</h3><p>${n.excerpt}</p>
+      <button class="read-more" data-article="${n.id}">Read More <svg class="icon"><use href="#i-arrow"/></svg></button>
+    </div>
+  </article>`).join('');
+observeReveals($('#newsGrid'));
+
+/* ============================================================
+   ARTICLE MODAL — news, legal pages, video highlights
+   ============================================================ */
+function openArticle(id){
+  const a = CONFIG.news.find(x => x.id === id)
+         || CONFIG.articles[id]
+         || CONFIG.highlights.find(x => x.id === id);
+  if(!a) return;
+  const media = a.iframe
+    ? `<div class="am-video"><iframe src="${a.iframe}" title="${a.title}" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>`
+    : (a.seed ? `<img class="am-img" src="${pic(a.seed, 900, 500)}" alt="${a.title}" loading="lazy" decoding="async">` : '');
+  const paras = (a.body || (a.desc ? [a.desc] : [])).map(p => `<p>${p}</p>`).join('');
+  const list  = a.list ? `<ul class="am-list">${a.list.map(li => `<li>${li}</li>`).join('')}</ul>` : '';
+  $('#articlePanel').innerHTML = `
+    <div class="am-top"><span class="cat ${a.cls || 'cat-gold'}">${a.cat || 'Highlights'}</span><time>${a.date}</time></div>
+    <h2>${a.title}</h2>
+    ${media}${paras}${list}`;
+  openModal($('#articleModal'));
+}
+document.addEventListener('click', e => {
+  const btn = e.target.closest('[data-article]');
+  if(btn) openArticle(btn.dataset.article);
+  if(e.target.closest('#articleModal a[href^="#"]')) closeModal($('#articleModal'));
+});
+
+/* ============================================================
+   RENDER — highlights (featured card + mini list)
+   ============================================================ */
+(function renderHighlights(){
+  const feat = CONFIG.highlights.find(h => h.featured) || CONFIG.highlights[0];
+  const minis = CONFIG.highlights.filter(h => h !== feat);
+  $('#hlFeatured').innerHTML = `
+    <article class="hl-featured" role="button" tabindex="0" data-article="${feat.id}"
+             aria-label="Play video: ${feat.title}. Duration ${feat.duration}" data-reveal>
+      <img src="${pic(feat.seed, 960, 540)}" alt="" loading="lazy" decoding="async">
+      <span class="hl-duration">${feat.duration}</span>
+      <span class="hl-play" aria-hidden="true"><span><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7Z" fill="currentColor"/></svg></span></span>
+      <span class="hl-cap">${feat.title}</span>
+    </article>`;
+  $('#hlList').innerHTML = minis.map((h,i) => `
+    <article class="hl-mini" role="button" tabindex="0" data-article="${h.id}"
+             aria-label="Play video: ${h.title}. Duration ${h.duration}" data-reveal style="--i:${i}">
+      <div class="hl-mini-thumb">
+        <img src="${pic(h.seed, 320, 200)}" alt="" loading="lazy" decoding="async">
+        <span class="hl-duration">${h.duration}</span>
+      </div>
+      <div class="hl-mini-body"><h4>${h.title}</h4><time>${h.date}</time></div>
+    </article>`).join('');
+  observeReveals($('#hlFeatured'));
+  observeReveals($('#hlList'));
+})();
+
+/* ============================================================
+   RENDER — venue details, map pin + facility chips
+   ============================================================ */
+(function renderVenue(){
+  const v = CONFIG.venue;
+  $('#venueName').textContent = v.name;
+  const map = $('#venueMap');
+  map.src = v.mapEmbed;
+  map.title = 'Map — ' + v.name;
+  const rows = [
+    ['i-pin','Home Ground', v.address],
+    ['i-arrow','Directions', v.directions],
+  ];
+  $('#venueInfo').innerHTML = rows.map(([ic,label,val]) => `
+    <li><svg class="icon"><use href="#${ic}"/></svg><div><b>${label}</b><span class="info-txt">${val}</span></div></li>`).join('');
+  $('#venueChips').innerHTML = v.facilities.map(f => `<span class="badge" role="listitem">${f}</span>`).join('');
+})();
+
+/* ============================================================
+   RENDER — fan zone cards
+   ============================================================ */
+(function renderFans(){
+  const HREF = {join:'#join', contact:'#contact'};
+  $('#fansGrid').innerHTML = CONFIG.fanZone.map((f,i) => {
+    const ext = f.cta.action === 'whatsapp';
+    const href = ext ? CONFIG.whatsappGroup : (HREF[f.cta.action] || '#join');
+    return `<article class="fan-card" data-reveal style="--i:${i}">
+      <span class="fan-icon" aria-hidden="true"><svg class="icon"><use href="#${f.icon}"/></svg></span>
+      <h3>${f.title}</h3>
+      <p>${f.copy}</p>
+      <a class="btn btn-ghost" href="${href}" ${ext ? 'target="_blank" rel="noopener"' : ''}>${f.cta.label} <svg class="icon"><use href="#i-arrow"/></svg></a>
+    </article>`;
+  }).join('');
+  observeReveals($('#fansGrid'));
+})();
+
+/* ============================================================
+   RENDER — club history timeline
+   ============================================================ */
+ $('#timeline').innerHTML = CONFIG.timeline.map((t,i) => `
+  <li data-reveal style="--i:${i}">
+    <span class="tl-year">${t.year}</span>
+    <p class="tl-event">${t.event}</p>
+  </li>`).join('');
+observeReveals($('#timeline'));
+
+/* ============================================================
+   RENDER — gallery + lightbox
+   ============================================================ */
+ $('#galGrid').innerHTML = CONFIG.gallery.map((g,i) => `
+  <figure class="gal-item" data-cat="${g.cat}" data-i="${i}" tabindex="0" role="button"
+          aria-label="Open image: ${g.cap}" data-reveal style="--i:${i%4}">
+    <img src="${pic(g.seed, g.w, g.h)}" alt="${g.cap}" loading="lazy" decoding="async">
+    <figcaption><span class="gal-cat">${g.cat}</span>${g.cap}</figcaption>
+  </figure>`).join('');
+observeReveals($('#galGrid'));
+
+const galBtns = $$('#galFilter .tab');
+function filterGallery(btn){
+  galBtns.forEach(b => b.setAttribute('aria-selected', b === btn));
+  const f = btn.dataset.filter;
+  $$('#galGrid .gal-item').forEach(it =>
+    it.classList.toggle('off', f !== 'All' && it.dataset.cat !== f));
+}
+galBtns.forEach(b => b.addEventListener('click', () => filterGallery(b)));
+ $('#galFilter').addEventListener('keydown', e => {
+  if(!['ArrowRight','ArrowLeft'].includes(e.key)) return;
+  e.preventDefault();
+  const idx = galBtns.indexOf(document.activeElement);
+  const next = (idx + (e.key === 'ArrowRight' ? 1 : -1) + galBtns.length) % galBtns.length;
+  galBtns[next].focus(); filterGallery(galBtns[next]);
+});
+
+let lbIndex = 0;
+function visibleGallery(){
+  return $$('#galGrid .gal-item').filter(it => !it.classList.contains('off'));
+}
+function lbShow(){
+  const list = visibleGallery();
+  const g = CONFIG.gallery[+list[lbIndex].dataset.i];
+  $('#lbImg').src = pic(g.seed, g.w, g.h);
+  $('#lbImg').alt = g.cap;
+  $('#lbCap').textContent = `${g.cat} — ${g.cap}`;
+  $('#lbCount').textContent = `${lbIndex+1} / ${list.length}`;
+}
+function lbStep(dir){
+  const list = visibleGallery();
+  lbIndex = (lbIndex + dir + list.length) % list.length;
+  lbShow();
+}
+function openLightbox(item){
+  lbIndex = visibleGallery().indexOf(item);
+  lbShow();
+  openModal($('#lightbox'));
+}
+ $('#galGrid').addEventListener('click', e => {
+  const it = e.target.closest('.gal-item');
+  if(it) openLightbox(it);
+});
+ $('#galGrid').addEventListener('keydown', e => {
+  const it = e.target.closest('.gal-item');
+  if(it && (e.key === 'Enter' || e.key === ' ')){ e.preventDefault(); openLightbox(it); }
+});
+ $('#lbPrev').addEventListener('click', () => lbStep(-1));
+ $('#lbNext').addEventListener('click', () => lbStep(1));
+
+/* ============================================================
+   FORMS — validation, toast, inline gold success box
+   ============================================================ */
+ $$('form[data-toast]').forEach(form => form.addEventListener('submit', e => {
+  e.preventDefault();
+  if(!form.reportValidity()) return;
+  toast(form.dataset.toast);
+  if(form.dataset.success){
+    form.innerHTML = `<p class="form-success" role="status"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>${form.dataset.success}</span></p>`;
+  } else {
+    form.reset();
+  }
+}));
+</script>
+</body>
+</html>
