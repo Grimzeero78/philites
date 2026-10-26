@@ -394,8 +394,6 @@ tr.zone-bot{box-shadow:inset 0 2px 0 rgba(217,88,79,.6)}
 .am-img{width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:1.4rem;border:1px solid var(--line)}
 .am-body p{color:var(--muted);margin-bottom:1.1rem;font-size:.97rem}
 .am-body p:first-of-type::first-letter{font-family:var(--f-disp);font-size:3.2em;float:left;line-height:.8;margin:.06em .12em 0 0;color:var(--gold)}
-.am-video{position:relative;aspect-ratio:16/9;border:1px solid var(--line);margin-bottom:1.4rem;background:#000}
-.am-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .am-list{margin:0 0 1.1rem;padding-left:1.3rem;color:var(--muted);font-size:.97rem}
 .am-list li{margin-bottom:.45rem}
 .am-list li::marker{color:var(--gold)}
@@ -446,7 +444,7 @@ tr.zone-bot{box-shadow:inset 0 2px 0 rgba(217,88,79,.6)}
 .club-aside .sec-kicker{margin-bottom:1.2rem}
 .staff-card{display:flex;gap:1.25rem;align-items:center;background:var(--bg-2);border:1px solid var(--line);padding:1.1rem;margin-bottom:1rem;transition:border-color .25s,transform .25s var(--ease)}
 .staff-card:hover{border-color:var(--gold-line);transform:translateX(4px)}
-.staff-card img{width:110px;height:110px;object-fit:cover;filter:grayscale(1);border:1px solid var(--line);flex:none}
+.staff-card img{width:140px;height:140px;object-fit:cover;filter:grayscale(1);border:1px solid var(--line);flex:none}
 .staff-card h4{font-family:var(--f-head);font-weight:500;font-size:1.08rem;letter-spacing:.05em;text-transform:uppercase}
 .staff-card .role{font-family:var(--f-head);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
 .staff-card p{font-size:.82rem;color:var(--muted);margin-top:.35rem}
@@ -480,56 +478,7 @@ tr.zone-bot{box-shadow:inset 0 2px 0 rgba(217,88,79,.6)}
 @media(max-width:700px){.lb-prev{left:4px}.lb-next{right:4px}}
 
 /* ============================================================
-   13b. MATCH CENTRE / HIGHLIGHTS — CONFIG.highlights
-   ============================================================ */
-.hl-grid{display:grid;gap:1.3rem}
-@media(min-width:900px){.hl-grid{grid-template-columns:1.4fr 1fr}}
-.hl-featured{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--line);background:var(--bg-3);cursor:pointer;transition:border-color .3s}
-.hl-featured:hover,.hl-featured:focus-visible{border-color:var(--gold-line)}
-.hl-featured img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
-.hl-featured:hover img{transform:scale(1.04)}
-.hl-play{position:absolute;inset:0;display:grid;place-items:center}
-.hl-play span{width:74px;height:74px;border-radius:50%;border:2px solid #F5A623;background:rgba(13,13,13,.55);backdrop-filter:blur(3px);display:grid;place-items:center;color:#F5A623;transition:transform .3s var(--ease),background .3s}
-.hl-featured:hover .hl-play span,.hl-featured:focus-visible .hl-play span{transform:scale(1.1);background:rgba(245,166,35,.25)}
-.hl-cap{position:absolute;inset:auto 0 0 0;padding:2.6rem 1.2rem .9rem;background:linear-gradient(180deg,transparent,rgba(10,10,10,.92));font-family:var(--f-head);font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#F1EFE9;text-align:left}
-.hl-duration{position:absolute;right:.55rem;bottom:.55rem;z-index:2;font-family:var(--f-head);font-size:.7rem;letter-spacing:.1em;padding:.15rem .5rem;background:rgba(13,13,13,.85);border:1px solid rgba(255,255,255,.2);color:#F1EFE9}
-.hl-featured .hl-duration{bottom:auto;top:.7rem}
-.hl-list{display:grid;gap:1rem;align-content:start}
-.hl-mini{display:grid;grid-template-columns:132px 1fr;gap:1rem;align-items:center;background:var(--bg-2);border:1px solid var(--line);padding:.7rem;cursor:pointer;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
-.hl-mini:hover{transform:translateY(-3px);border-color:var(--gold-line);box-shadow:0 12px 26px -14px rgba(245,166,35,.3)}
-.hl-mini-thumb{position:relative;aspect-ratio:16/10;overflow:hidden}
-.hl-mini-thumb img{width:100%;height:100%;object-fit:cover}
-.hl-mini-body h4{font-family:var(--f-head);font-weight:500;font-size:.92rem;line-height:1.3;margin-bottom:.2rem}
-.hl-mini-body time{font-size:.72rem;color:var(--faint)}
-@media(max-width:480px){.hl-mini{grid-template-columns:104px 1fr}}
-
-/* ============================================================
-   13c. VENUE / GROUND — local-university level: address,
-   directions, facilities, map. No capacity/surface pretence.
-   Content comes from CONFIG.venue.
-   ============================================================ */
-.venue-grid{display:grid;gap:2.5rem}
-@media(min-width:900px){.venue-grid{grid-template-columns:1fr 1fr;gap:3rem}}
-.venue-name{font-family:var(--f-disp);font-weight:400;font-size:1.9rem;letter-spacing:.03em;margin-bottom:1.2rem}
-.venue-map{display:block;width:100%;aspect-ratio:4/3;min-height:300px;border:1px solid var(--line);background:var(--bg-3)}
-.chip-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
-.info-list .info-txt{display:block;font-size:.93rem}
-
-/* ============================================================
-   13d. FAN ZONE — CONFIG.fanZone
-   ============================================================ */
-.fans-grid{display:grid;gap:1.3rem}
-@media(min-width:900px){.fans-grid{grid-template-columns:repeat(3,1fr)}}
-.fan-card{display:flex;flex-direction:column;gap:1rem;background:var(--bg-2);border:1px solid var(--line);padding:2rem 1.7rem;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
-.fan-card:hover{transform:translateY(-5px);border-color:var(--gold-line);box-shadow:0 16px 34px -16px rgba(245,166,35,.3)}
-.fan-icon{width:52px;height:52px;border:1px solid var(--gold-line);background:var(--gold-soft);display:grid;place-items:center;color:var(--gold);flex:none}
-.fan-icon .icon{width:24px;height:24px}
-.fan-card h3{font-family:var(--f-head);font-weight:500;font-size:1.15rem;letter-spacing:.04em;text-transform:uppercase}
-.fan-card p{font-size:.88rem;color:var(--muted)}
-.fan-card .btn{margin-top:auto;justify-content:center}
-
-/* ============================================================
-   14. JOIN BANNER + CONTACT
+   13. JOIN BANNER + CONTACT
    The join panel keeps its navy "match-night" look in both
    themes — its copy column re-pins the dark-theme tokens so
    text contrast is guaranteed (the form card stays theme-aware).
@@ -672,21 +621,35 @@ tr.zone-bot{box-shadow:inset 0 2px 0 rgba(217,88,79,.6)}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="crest" viewBox="0 0 120 140">
-      <path d="M60 4 112 21v47c0 33-21 54-52 67C29 122 8 101 8 68V21Z" fill="#132A4E" stroke="#F5A623" stroke-width="3.5" stroke-linejoin="round"/>
+      <clipPath id="crestClip"><path d="M60 4 112 21v47c0 33-21 54-52 67C29 122 8 101 8 68V21Z"/></clipPath>
+      <!-- black &amp; white striped shield (Toon stripes) -->
+      <path d="M60 4 112 21v47c0 33-21 54-52 67C29 122 8 101 8 68V21Z" fill="#F4F2EC"/>
+      <g clip-path="url(#crestClip)">
+        <rect x="8" y="0" width="13" height="140" fill="#101010"/>
+        <rect x="34" y="0" width="13" height="140" fill="#101010"/>
+        <rect x="60" y="0" width="13" height="140" fill="#101010"/>
+        <rect x="86" y="0" width="13" height="140" fill="#101010"/>
+      </g>
       <path d="M60 13 103 27v40c0 27-17 45-43 56-26-11-43-29-43-56V27Z" fill="none" stroke="rgba(245,166,35,.45)" stroke-width="1.5"/>
-      <text x="60" y="31" text-anchor="middle" font-family="Oswald,sans-serif" font-size="7.5" letter-spacing="2.4" fill="#9FB3D4">EST. 2016 · CHUKA</text>
-      <text x="60" y="77" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="52" fill="#F5A623">P</text>
-      <circle cx="60" cy="91" r="11.5" fill="#F1EFE9"/>
-      <path d="M60 84.8 65.1 88.5 63.1 94.5 56.9 94.5 54.9 88.5Z" fill="#0D0D0D"/>
-      <path d="M60 79.5v5.3M65.1 88.5l5-1.7M63.1 94.5l3.2 4.2M56.9 94.5l-3.2 4.2M54.9 88.5l-5-1.7" stroke="#0D0D0D" stroke-width="1.2" fill="none"/>
-      <path d="M27 70l3 3-3 3-3-3Z" fill="#F5A623"/>
-      <path d="M93 70l3 3-3 3-3-3Z" fill="#F5A623"/>
-      <text x="60" y="115" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="600" font-size="10" letter-spacing="2.6" fill="#F1EFE9">PHILITES</text>
+      <!-- centre disc -->
+      <circle cx="60" cy="66" r="32" fill="#132A4E"/>
+      <circle cx="60" cy="66" r="32" fill="none" stroke="#F5A623" stroke-width="3"/>
+      <!-- magpie silhouette (long graduated tail pierces the ring) -->
+      <path d="M86.5 51.5 L80.2 49 L78.8 46.6 C77.4 44 73.4 43.8 70 44.7 C66.6 45.7 64 48 63.2 50.8 C60 52.8 56.4 55.8 53.8 59.4 C52.2 61.4 51.2 63.2 50.6 65 L33 90.5 L36.5 93.5 L60 82 C61.8 84.2 64.2 85.6 66.8 85.9 C70.4 86.3 74.2 84.8 76.8 82.2 C79.4 79.6 80.8 75.8 80.9 72 C81 68.4 80.7 64.4 80.3 61 C80.2 59.2 80.1 56.6 80.1 54.8 L86.5 51.5 Z" fill="#F4F2EC" stroke="#132A4E" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M64.5 52.8 C59 56.8 55 61.4 52.6 66.6 L51.4 69.6 C55.4 64.6 60.8 59 67.4 54.2 Z" fill="#132A4E"/>
+      <circle cx="76.2" cy="50.8" r="1.3" fill="#132A4E"/>
+      <!-- name banner -->
+      <path d="M28 100 H92 V115 H28 Z" fill="#F4F2EC" stroke="#132A4E" stroke-width="1.6"/>
+      <rect x="28" y="100" width="64" height="2.4" fill="#F5A623"/>
+      <text x="60" y="111.5" text-anchor="middle" font-family="Oswald,'Arial Narrow',sans-serif" font-weight="700" font-size="8" letter-spacing="1" fill="#132A4E">PHILITES FC</text>
+      <!-- gold border on top -->
+      <path d="M60 4 112 21v47c0 33-21 54-52 67C29 122 8 101 8 68V21Z" fill="none" stroke="#F5A623" stroke-width="3.5" stroke-linejoin="round"/>
     </symbol>
     <symbol id="crest-ghost" viewBox="0 0 120 140">
       <path d="M60 4 112 21v47c0 33-21 54-52 67C29 122 8 101 8 68V21Z" fill="none" stroke="currentColor" stroke-width="2"/>
       <path d="M60 13 103 27v40c0 27-17 45-43 56-26-11-43-29-43-56V27Z" fill="none" stroke="currentColor" stroke-width="1"/>
-      <text x="60" y="92" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="66" fill="currentColor">P</text>
+      <circle cx="60" cy="66" r="32" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M86.5 51.5 L80.2 49 L78.8 46.6 C77.4 44 73.4 43.8 70 44.7 C66.6 45.7 64 48 63.2 50.8 C60 52.8 56.4 55.8 53.8 59.4 C52.2 61.4 51.2 63.2 50.6 65 L33 90.5 L36.5 93.5 L60 82 C61.8 84.2 64.2 85.6 66.8 85.9 C70.4 86.3 74.2 84.8 76.8 82.2 C79.4 79.6 80.8 75.8 80.9 72 C81 68.4 80.7 64.4 80.3 61 C80.2 59.2 80.1 56.6 80.1 54.8 L86.5 51.5 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
     </symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h12"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
@@ -703,9 +666,6 @@ tr.zone-bot{box-shadow:inset 0 2px 0 rgba(217,88,79,.6)}
     <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M19.4 4.6l-1.8 1.8M6.4 17.6l-1.8 1.8"/></symbol>
     <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></symbol>
     <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 21l4.7-1.2A8.8 8.8 0 1 0 12 3.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.4 8.2c-.25 0-.55.05-.8.35-.3.35-.85 1-.85 2.1 0 1.1.75 2.4 1.15 3 .7 1.05 2.05 2.5 4.05 3.2 1.3.45 2 .5 2.55.4.55-.1 1.3-.65 1.5-1.25.15-.5.15-.9.1-1-.1-.15-.3-.25-.6-.4l-1.6-.8c-.3-.15-.55-.1-.75.15l-.6.75c-.15.15-.35.2-.6.1-.9-.4-1.7-.95-2.4-1.75-.5-.6-.85-1.2-1.05-1.7-.1-.25-.05-.45.1-.6l.5-.55c.25-.3.2-.55.05-.8l-.75-1.5c-.15-.3-.35-.45-.7-.45Z" fill="currentColor" stroke="none"/></symbol>
-    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.6-9.2-9A5.2 5.2 0 0 1 12 6.5 5.2 5.2 0 0 1 21.2 11c-2.2 4.4-9.2 9-9.2 9Z"/></symbol>
-    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-5-6.3"/></symbol>
-    <symbol id="i-mega" viewBox="0 0 24 24"><path d="M20 4 7 8.5H4.5A1.5 1.5 0 0 0 3 10v4a1.5 1.5 0 0 0 1.5 1.5H7l13 4.5V4Z"/><path d="M7 15.5V19a1.5 1.5 0 0 0 3 0v-2.5"/></symbol>
     <symbol id="i-fb" viewBox="0 0 24 24"><path d="M15.5 8.5H13V7a1 1 0 0 1 1-1h1.5V3H13.5A3.5 3.5 0 0 0 10 6.5v2H7.5v3H10V21h3v-9.5h2.3Z"/></symbol>
     <symbol id="i-ig" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16.7" cy="7.3" r="1.2"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 3.5h4.6l4.1 5.8L17.7 3.5H21l-6.5 8.5 6.9 8.5H16.8l-4.5-6.3L7 20.5H3.6l7-9L4 3.5Z"/></symbol>
@@ -730,9 +690,6 @@ tr.zone-bot{box-shadow:inset 0 2px 0 rgba(217,88,79,.6)}
         <li><a href="#squad">Squad</a></li>
         <li><a href="#news">News</a></li>
         <li><a href="#club">Club</a></li>
-        <li><a href="#highlights">Highlights</a></li>
-        <li><a href="#venue">Venue</a></li>
-        <li><a href="#fans">Fans</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -753,10 +710,7 @@ tr.zone-bot{box-shadow:inset 0 2px 0 rgba(217,88,79,.6)}
     <li><a href="#news"><span>05</span>News</a></li>
     <li><a href="#club"><span>06</span>Club</a></li>
     <li><a href="#gallery"><span>07</span>Gallery</a></li>
-    <li><a href="#highlights"><span>08</span>Highlights</a></li>
-    <li><a href="#venue"><span>09</span>Venue</a></li>
-    <li><a href="#fans"><span>10</span>Fans</a></li>
-    <li><a href="#contact"><span>11</span>Contact</a></li>
+    <li><a href="#contact"><span>08</span>Contact</a></li>
   </ul>
   <a class="btn btn-gold" href="#join">Join the Philites</a>
 </nav>
@@ -950,15 +904,15 @@ tr.zone-bot{box-shadow:inset 0 2px 0 rgba(217,88,79,.6)}
       <aside class="club-aside">
         <p class="sec-kicker" data-reveal>Coaching Staff</p>
         <div class="staff-card" data-reveal style="--i:0">
-          <img src="https://picsum.photos/seed/ph-coach1/220/220.jpg?grayscale" alt="Head Coach Stephen Odhiambo" loading="lazy" decoding="async">
+          <img src="https://picsum.photos/seed/ph-coach1/280/280.jpg?grayscale" alt="Head Coach Stephen Odhiambo" loading="lazy" decoding="async">
           <div><h4>Stephen Odhiambo</h4><span class="role">Head Coach</span><p>CAF C licensed. Former Shabana FC midfielder. Believes the first pass is a philosophy statement.</p></div>
         </div>
         <div class="staff-card" data-reveal style="--i:1">
-          <img src="https://picsum.photos/seed/ph-coach2/220/220.jpg?grayscale" alt="Assistant Coach Grace Wairimu" loading="lazy" decoding="async">
+          <img src="https://picsum.photos/seed/ph-coach2/280/280.jpg?grayscale" alt="Assistant Coach Grace Wairimu" loading="lazy" decoding="async">
           <div><h4>Grace Wairimu</h4><span class="role">Assistant Coach</span><p>Runs the pressing drills and the video sessions. Ex-captain of the university women's side.</p></div>
         </div>
         <div class="staff-card" data-reveal style="--i:2">
-          <img src="https://picsum.photos/seed/ph-coach3/220/220.jpg?grayscale" alt="Goalkeeping Coach Patrick Yego" loading="lazy" decoding="async">
+          <img src="https://picsum.photos/seed/ph-coach3/280/280.jpg?grayscale" alt="Goalkeeping Coach Patrick Yego" loading="lazy" decoding="async">
           <div><h4>Patrick Yego</h4><span class="role">Goalkeeping Coach</span><p>400-plus league appearances as a keeper across Nandi and Uasin Gishu. Now he builds walls.</p></div>
         </div>
       </aside>
@@ -987,65 +941,7 @@ tr.zone-bot{box-shadow:inset 0 2px 0 rgba(217,88,79,.6)}
 </section>
 
 <!-- ============================================================
-     08 — MATCH CENTRE / HIGHLIGHTS (CONFIG.highlights)
-     ============================================================ -->
-<section class="sec" id="highlights" aria-labelledby="highlights-title">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <span class="sec-index">08</span>
-      <div><p class="sec-kicker">Video Match Centre</p><h2 id="highlights-title">HIGHLIGHTS</h2></div>
-      <div class="sec-rule" aria-hidden="true"></div>
-      <span class="sec-action">Season 2026/27</span>
-    </div>
-    <div class="hl-grid">
-      <div id="hlFeatured"></div>
-      <div class="hl-list" id="hlList" aria-label="More highlights"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     09 — VENUE / GROUND (CONFIG.venue — local level, no capacity)
-     ============================================================ -->
-<section class="sec sec--alt" id="venue" aria-labelledby="venue-title">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <span class="sec-index">09</span>
-      <div><p class="sec-kicker">Our Ground</p><h2 id="venue-title">THE VENUE</h2></div>
-      <div class="sec-rule" aria-hidden="true"></div>
-    </div>
-    <div class="venue-grid">
-      <div data-reveal>
-        <h3 class="venue-name" id="venueName"></h3>
-        <ul class="info-list" id="venueInfo" style="margin-bottom:0"></ul>
-      </div>
-      <div data-reveal style="--i:1">
-        <iframe id="venueMap" class="venue-map"
-                src="https://www.google.com/maps?q=Chuka+University,+Chuka,+Kenya&z=16&output=embed"
-                title="Map — Chuka University pitch"
-                loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-      </div>
-    </div>
-    <div class="chip-row" id="venueChips" data-reveal role="list" aria-label="Facilities"></div>
-  </div>
-</section>
-
-<!-- ============================================================
-     10 — FAN ZONE (CONFIG.fanZone)
-     ============================================================ -->
-<section class="sec" id="fans" aria-labelledby="fans-title">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <span class="sec-index">10</span>
-      <div><p class="sec-kicker">Matchday Family</p><h2 id="fans-title">FAN ZONE</h2></div>
-      <div class="sec-rule" aria-hidden="true"></div>
-    </div>
-    <div class="fans-grid" id="fansGrid"></div>
-  </div>
-</section>
-
-<!-- ============================================================
-     11 — JOIN THE PHILITES
+     08 — JOIN THE PHILITES
      ============================================================ -->
 <section class="sec sec--alt" id="join" aria-labelledby="join-title">
   <div class="wrap">
@@ -1085,12 +981,12 @@ tr.zone-bot{box-shadow:inset 0 2px 0 rgba(217,88,79,.6)}
 </section>
 
 <!-- ============================================================
-     12 — CONTACT (CONFIG.contact + CONFIG.socials)
+     09 — CONTACT (CONFIG.contact + CONFIG.socials)
      ============================================================ -->
 <section class="sec" id="contact" aria-labelledby="contact-title">
   <div class="wrap">
     <div class="sec-head" data-reveal>
-      <span class="sec-index">12</span>
+      <span class="sec-index">08</span>
       <div><p class="sec-kicker">Get in Touch</p><h2 id="contact-title">CONTACT THE CLUB</h2></div>
       <div class="sec-rule" aria-hidden="true"></div>
     </div>
@@ -1393,51 +1289,6 @@ const CONFIG = {
            'N. Achieng collected a half-clearance 25 yards out, cut inside and buried the winner into the bottom corner. Semi-final opponents will be confirmed after Matchday 16.']},
   ],
 
-  /* ── EDIT: video highlights. featured:true = the big card.
-       iframe: replace VIDEO_ID with a real YouTube ID. ── */
-  highlights: [
-    {id:'h1', featured:true, title:'Highlights: Philites 2–0 Youngsters', date:'8 Nov 2026', duration:'4:32', seed:'ph-hl-1',
-     iframe:'https://www.youtube-nocookie.com/embed/VIDEO_ID',
-     desc:'All the goals and the big saves from the 2–0 win over Youngsters — Mbogo\u2019s early header and Kariuki\u2019s back-post finish.'},
-    {id:'h2', title:'Achieng\u2019s cup winner vs Vipers', date:'17 Oct 2026', duration:'1:08', seed:'ph-hl-2',
-     iframe:'https://www.youtube-nocookie.com/embed/VIDEO_ID',
-     desc:'88 minutes on the clock, 25 yards from goal — N. Achieng cuts inside and buries the winner into the bottom corner.'},
-    {id:'h3', title:'Kariuki free kick stuns Rerina', date:'11 Oct 2026', duration:'0:54', seed:'ph-hl-3',
-     iframe:'https://www.youtube-nocookie.com/embed/VIDEO_ID',
-     desc:'G. Kariuki\u2019s dipping 25-yard free kick that decided the away tie against Rerina.'},
-    {id:'h4', title:'Ochieng\u2019s saves vs Pokuca', date:'1 Nov 2026', duration:'2:15', seed:'ph-hl-4',
-     iframe:'https://www.youtube-nocookie.com/embed/VIDEO_ID',
-     desc:'B. Ochieng\u2019s best saves from a tough afternoon at Pokuca — a masterclass in keeping the score respectable.'},
-    {id:'h5', title:'Mbogo\u2019s opening header', date:'8 Nov 2026', duration:'0:47', seed:'ph-hl-5',
-     iframe:'https://www.youtube-nocookie.com/embed/VIDEO_ID',
-     desc:'I. Maina\u2019s cross, R. Mbogo\u2019s run, and a header that set the tone against Youngsters.'},
-  ],
-
-  /* ── EDIT: ★ venue — kept to local-university level: name, address,
-       directions, facilities and the map pin. Capacity/surface removed.
-       mapEmbed: to pinpoint the EXACT field, replace the q= value with
-       GPS coordinates when you have them, e.g.  q=-0.3349,37.6421 ── */
-  venue: {
-    name: 'Chuka University Pitch · Pitch A',
-    address: 'Chuka University Sports Complex, along Chuka–Embu Road, Chuka, Tharaka-Nithi County',
-    directions: '15 minutes\u2019 walk from the main gate — follow the signs past the library. Parking at Complex Lot B.',
-    mapEmbed: 'https://www.google.com/maps?q=Chuka+University,+Chuka,+Kenya&z=16&output=embed',
-    facilities: ['Changing Rooms', 'Floodlights', 'Seating']
-  },
-
-  /* ── EDIT: fan zone cards. cta.action: 'join' | 'whatsapp' | 'contact' ── */
-  fanZone: [
-    {icon:'i-heart', title:'Join the Supporters\u2019 Club',
-     copy:'A season card, priority away-travel seats and a vote in the end-of-season awards. KSh 200 for the season — every shilling funds the away trips.',
-     cta:{label:'Become a Member', action:'join'}},
-    {icon:'i-users', title:'Volunteer on Matchday',
-     copy:'Stewards, ball crew, announcer team and social media runners. Matchday credit, free entry and first pick of away fixtures.',
-     cta:{label:'Join the Volunteer Crew', action:'whatsapp'}},
-    {icon:'i-mega', title:'Follow the Philites',
-     copy:'Line-ups, goals and behind-the-scenes chaos across WhatsApp, Facebook, Instagram, X and TikTok. The drum beats loudest online.',
-     cta:{label:'Find Our Socials', action:'contact'}},
-  ],
-
   /* ── EDIT: club history timeline (year + event) ── */
   timeline: [
     {year:'2016', event:'Founded on the dust pitches behind Hall C by the evening philosophy discussion group.'},
@@ -1469,9 +1320,6 @@ const CONFIG = {
         '<a href="#news">News</a> — reports and announcements',
         '<a href="#club">Club</a> — history, honours, timeline, staff',
         '<a href="#gallery">Gallery</a> — matchday and training photos',
-        '<a href="#highlights">Highlights</a> — video match centre',
-        '<a href="#venue">Venue</a> — ground info, facilities, directions',
-        '<a href="#fans">Fan Zone</a> — membership and volunteering',
         '<a href="#join">Join</a> — trials registration',
         '<a href="#contact">Contact</a> — forms, socials, address',
       ]},
@@ -1877,20 +1725,16 @@ function openPlayer(id){
 observeReveals($('#newsGrid'));
 
 /* ============================================================
-   ARTICLE MODAL — news, legal pages, video highlights
+   ARTICLE MODAL — news and legal pages
    ============================================================ */
 function openArticle(id){
-  const a = CONFIG.news.find(x => x.id === id)
-         || CONFIG.articles[id]
-         || CONFIG.highlights.find(x => x.id === id);
+  const a = CONFIG.news.find(x => x.id === id) || CONFIG.articles[id];
   if(!a) return;
-  const media = a.iframe
-    ? `<div class="am-video"><iframe src="${a.iframe}" title="${a.title}" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>`
-    : (a.seed ? `<img class="am-img" src="${pic(a.seed, 900, 500)}" alt="${a.title}" loading="lazy" decoding="async">` : '');
+  const media = a.seed ? `<img class="am-img" src="${pic(a.seed, 900, 500)}" alt="${a.title}" loading="lazy" decoding="async">` : '';
   const paras = (a.body || (a.desc ? [a.desc] : [])).map(p => `<p>${p}</p>`).join('');
   const list  = a.list ? `<ul class="am-list">${a.list.map(li => `<li>${li}</li>`).join('')}</ul>` : '';
   $('#articlePanel').innerHTML = `
-    <div class="am-top"><span class="cat ${a.cls || 'cat-gold'}">${a.cat || 'Highlights'}</span><time>${a.date}</time></div>
+    <div class="am-top"><span class="cat ${a.cls || 'cat-gold'}">${a.cat || 'News'}</span><time>${a.date}</time></div>
     <h2>${a.title}</h2>
     ${media}${paras}${list}`;
   openModal($('#articleModal'));
@@ -1900,69 +1744,6 @@ document.addEventListener('click', e => {
   if(btn) openArticle(btn.dataset.article);
   if(e.target.closest('#articleModal a[href^="#"]')) closeModal($('#articleModal'));
 });
-
-/* ============================================================
-   RENDER — highlights (featured card + mini list)
-   ============================================================ */
-(function renderHighlights(){
-  const feat = CONFIG.highlights.find(h => h.featured) || CONFIG.highlights[0];
-  const minis = CONFIG.highlights.filter(h => h !== feat);
-  $('#hlFeatured').innerHTML = `
-    <article class="hl-featured" role="button" tabindex="0" data-article="${feat.id}"
-             aria-label="Play video: ${feat.title}. Duration ${feat.duration}" data-reveal>
-      <img src="${pic(feat.seed, 960, 540)}" alt="" loading="lazy" decoding="async">
-      <span class="hl-duration">${feat.duration}</span>
-      <span class="hl-play" aria-hidden="true"><span><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7Z" fill="currentColor"/></svg></span></span>
-      <span class="hl-cap">${feat.title}</span>
-    </article>`;
-  $('#hlList').innerHTML = minis.map((h,i) => `
-    <article class="hl-mini" role="button" tabindex="0" data-article="${h.id}"
-             aria-label="Play video: ${h.title}. Duration ${h.duration}" data-reveal style="--i:${i}">
-      <div class="hl-mini-thumb">
-        <img src="${pic(h.seed, 320, 200)}" alt="" loading="lazy" decoding="async">
-        <span class="hl-duration">${h.duration}</span>
-      </div>
-      <div class="hl-mini-body"><h4>${h.title}</h4><time>${h.date}</time></div>
-    </article>`).join('');
-  observeReveals($('#hlFeatured'));
-  observeReveals($('#hlList'));
-})();
-
-/* ============================================================
-   RENDER — venue details, map pin + facility chips
-   ============================================================ */
-(function renderVenue(){
-  const v = CONFIG.venue;
-  $('#venueName').textContent = v.name;
-  const map = $('#venueMap');
-  map.src = v.mapEmbed;
-  map.title = 'Map — ' + v.name;
-  const rows = [
-    ['i-pin','Home Ground', v.address],
-    ['i-arrow','Directions', v.directions],
-  ];
-  $('#venueInfo').innerHTML = rows.map(([ic,label,val]) => `
-    <li><svg class="icon"><use href="#${ic}"/></svg><div><b>${label}</b><span class="info-txt">${val}</span></div></li>`).join('');
-  $('#venueChips').innerHTML = v.facilities.map(f => `<span class="badge" role="listitem">${f}</span>`).join('');
-})();
-
-/* ============================================================
-   RENDER — fan zone cards
-   ============================================================ */
-(function renderFans(){
-  const HREF = {join:'#join', contact:'#contact'};
-  $('#fansGrid').innerHTML = CONFIG.fanZone.map((f,i) => {
-    const ext = f.cta.action === 'whatsapp';
-    const href = ext ? CONFIG.whatsappGroup : (HREF[f.cta.action] || '#join');
-    return `<article class="fan-card" data-reveal style="--i:${i}">
-      <span class="fan-icon" aria-hidden="true"><svg class="icon"><use href="#${f.icon}"/></svg></span>
-      <h3>${f.title}</h3>
-      <p>${f.copy}</p>
-      <a class="btn btn-ghost" href="${href}" ${ext ? 'target="_blank" rel="noopener"' : ''}>${f.cta.label} <svg class="icon"><use href="#i-arrow"/></svg></a>
-    </article>`;
-  }).join('');
-  observeReveals($('#fansGrid'));
-})();
 
 /* ============================================================
    RENDER — club history timeline
